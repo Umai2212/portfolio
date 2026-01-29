@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Content Strategy - Case Study | Umair Abdullah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF5C35;
+            --dark-bg: #0A0A0A;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-secondary: #888;
+            --border: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            background: var(--primary-orange);
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 900;
+            transition: all 0.3s;
+            text-decoration: none;
+            cursor: pointer; /* FIXED: Proper cursor */
+        }
+
+        .logo:hover {
+            transform: rotate(360deg);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Hero Section */
+        .case-hero {
+            padding: 80px 10% 60px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-orange);
+            text-decoration: none;
+        }
+
+        .case-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .case-meta {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-orange);
+        }
+
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 60px 10%;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-orange);
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px 0;
+            color: var(--text-main);
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 20px 0;
+        }
+
+        .section li {
+            color: var(--text-secondary);
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .section li:before {
+            content: "▸";
+            color: var(--primary-orange);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-orange);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: var(--card-bg);
+            padding: 60px 10%;
+            margin: 60px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--primary-orange);
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .view-more-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary-orange);
+            color: var(--primary-orange);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer; /* FIXED: Proper cursor */
+        }
+
+        .view-more-btn:hover {
+            background: var(--primary-orange);
+            color: white;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 40px 0;
+        }
+
+        .column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        /* Key Learnings Box */
+        .learnings-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-orange);
+            margin: 40px 0;
+        }
+
+        .learnings-box h3 {
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: rgba(255, 92, 53, 0.1);
+            color: var(--primary-orange);
+            font-weight: 600;
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* LIGHTBOX FIXES */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            user-select: none; /* FIXED: Prevent accidental text selection */
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            z-index: 2005;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            z-index: 2010;
+            transition: color 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-orange);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem; /* FIXED: Larger size */
+            color: white;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.15); /* FIXED: Clearer visibility */
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 2015;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-nav:hover {
+            background: var(--primary-orange);
+            border-color: var(--primary-orange);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 30px;
+        }
+
+        .lightbox-next {
+            right: 30px;
+        }
+
+        /* Project Navigation */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 60px 10%;
+            border-top: 1px solid var(--border);
+            gap: 40px;
+        }
+
+        .nav-project {
+            flex: 1;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-project:hover {
+            color: var(--primary-orange);
+        }
+
+        .nav-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .nav-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .nav-next {
+            text-align: right;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 10%;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-hero h1 { font-size: 2.5rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .two-column { grid-template-columns: 1fr; gap: 30px; }
+            .case-meta { flex-direction: column; gap: 20px; }
+            .project-nav { flex-direction: column; gap: 30px; }
+            .nav-next { text-align: left; }
+            .section { padding: 40px 5%; }
+            .lightbox-nav {
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
+            }
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">UA</a>
+        <a href="index.html#work" class="back-link">← Back to Portfolio</a>
+    </nav>
+
+    <section class="case-hero">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <a href="index.html#work">Work</a> / SEO Content Strategy
+        </div>
+        <h1>SEO Content Strategy for AdventurerDivine</h1>
+        <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 800px; margin-top: 15px;">
+            Build organic traffic through strategic SEO targeting AI-resistant content for adventure travel blog.
+        </p>
+        <div class="case-meta">
+            <div class="meta-item">
+                <span class="meta-label">Project</span>
+                <span class="meta-value">AdventurerDivine - Adventure Travel Blog</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Category</span>
+                <span class="meta-value">SEO & Content Marketing</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Timeline</span>
+                <span class="meta-value">December 2025 - Present</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Role</span>
+                <span class="meta-value">Founder & Content Strategist</span>
+            </div>
+        </div>
+    </section>
+
+    <img src="https://images.unsplash.com/photo-1486312330723-9c2c8b6f73ac?auto=format&fit=crop&w=1600&q=80" alt="SEO Content Strategy" class="featured-image" style="padding: 0 10%;">
+
+    <section class="section">
+        <h2>Overview</h2>
+        <p>AdventurerDivine is an adventure travel blog focused on building organic traffic through strategic SEO targeting AI-resistant content. Status: 10+ articles published, ongoing content development.</p>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Challenge</h2>
+        <p>In 2025-2026, AI-generated content has flooded the travel blogging space. Generic destination guides and "top 10" lists are being mass-produced by AI tools, making it nearly impossible for new blogs to rank through traditional SEO tactics. The challenge was:</p>
+        <ul>
+            <li>Compete with established travel blogs with high domain authority</li>
+            <li>Differentiate from AI-generated content flooding search results</li>
+            <li>Rank for competitive keywords without budget for backlink building</li>
+            <li>Create content that provides genuine value Google's algorithm rewards</li>
+            <li>Build topical authority in adventure travel niche from zero</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Strategy & Approach</h2>
+        
+        <h3>Phase 1: Competitive Analysis</h3>
+        <p>Used Ahrefs to research 15 competitor adventure blogs:</p>
+        <ul>
+            <li>Identified their top-performing pages and traffic sources</li>
+            <li>Analyzed which keywords they ranked for and why</li>
+            <li>Key finding: Several competitors ranking page 1 with fewer than 10 backlinks</li>
+            <li>Insight: They ranked on content quality alone, not link building</li>
+            <li>Documented content gaps: lack of personal experience, generic AI-like writing</li>
+        </ul>
+
+        <h3>Phase 2: AEO/GEO Strategy Development</h3>
+        <p>Developed Answer Engine Optimization strategy focusing on content AI cannot replicate:</p>
+        <ul>
+            <li>Personal experiences - First-hand trip reports with authentic stories</li>
+            <li>Hands-on gear testing - Real product reviews based on actual use</li>
+            <li>Local insider knowledge - Tips only locals or frequent visitors know</li>
+            <li>Original photography - Images from actual adventures, not stock photos</li>
+            <li>Detailed practical advice - Specific budgets, exact routes, real challenges faced</li>
+        </ul>
+        <p>Rationale: As Google's algorithm evolves to combat AI spam, it increasingly rewards E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness). Content demonstrating genuine experience ranks better than generic AI-generated guides.</p>
+
+        <h3>Phase 3: Keyword Research</h3>
+        <p>Targeted long-tail keywords with:</p>
+        <ul>
+            <li>Search volume: 500-2,000 monthly searches</li>
+            <li>Keyword difficulty: 20-40 (achievable without extensive backlinks)</li>
+            <li>Informational intent aligned with content pillars</li>
+            <li>Examples: "hiking essentials for beginners Karnataka," "best waterproof hiking boots India," "weekend treks near Bangalore"</li>
+        </ul>
+        <h4>Keyword Categories</h4>
+        <ul>
+            <li>Trip planning guides (40%) - Detailed itineraries with personal insights</li>
+            <li>Gear reviews (30%) - Honest, tested recommendations</li>
+            <li>Adventure stories (20%) - Personal trip reports and lessons learned</li>
+            <li>Tips & guides (10%) - Practical advice for beginners</li>
+        </ul>
+
+        <h3>Phase 4: Content Creation</h3>
+        <p>Publishing comprehensive guides (1,500-3,000 words each):</p>
+        <ul>
+            <li>Started with evergreen content: gear essentials, beginner tips, safety advice</li>
+            <li>Added trip-specific guides: trails near major cities, weekend getaways</li>
+            <li>Included personal narratives: challenges faced, mistakes made, lessons learned</li>
+            <li>Used original photography from actual hikes</li>
+            <li>Structured content with clear headers, bullet points, tables for easy scanning</li>
+        </ul>
+
+        <h3>Phase 5: Technical SEO Implementation</h3>
+        <ul>
+            <li>WordPress + Yoast SEO setup</li>
+            <li>Optimized site speed (90+ PageSpeed score)</li>
+            <li>Mobile-first responsive design using Elementor</li>
+            <li>Proper header hierarchy (H1 for title, H2 for main sections, H3 for subsections)</li>
+            <li>Internal linking strategy connecting related articles</li>
+            <li>XML sitemap submitted to Search Console</li>
+            <li>Image optimization (alt text, compression, lazy loading)</li>
+            <li>Schema markup for articles</li>
+        </ul>
+        <h4>On-Page Optimization</h4>
+        <ul>
+            <li>Title tags: Primary keyword + modifier (under 60 characters)</li>
+            <li>Meta descriptions: Compelling + CTA (under 155 characters)</li>
+            <li>URL structure: /keyword-focused-slug/ (short, descriptive)</li>
+            <li>Semantic keyword usage throughout content (avoiding keyword stuffing)</li>
+            <li>Featured snippet optimization (bullet lists, tables, direct answers to questions)</li>
+        </ul>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Current Results (10+ Articles Published)</h2>
+        <ul>
+            <li>Several keywords moving from not ranking to positions 15-30</li>
+            <li>Early signs of ranking potential for target keywords</li>
+            <li>Building topical authority in adventure travel niche</li>
+        </ul>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">2.3</div>
+                <div class="stat-label">Pages per Session</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">3:45</div>
+                <div class="stat-label">Average Time on Page (minutes)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">Growing</div>
+                <div class="stat-label">Organic Traffic</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Content Published</h2>
+        <ul>
+            <li>"Hiking Essentials for Beginners in Karnataka"</li>
+            <li>"Best Day Hikes Near Bangalore for Weekends"</li>
+            <li>"Waterproof Hiking Boots Guide: Tested in Indian Monsoons"</li>
+            <li>"Solo Trekking Safety: Lessons from 10+ Solo Hikes"</li>
+            <li>"Budget Breakdown: 3-Day Trek in Western Ghats"</li>
+            <li>Plus 5+ additional guides</li>
+        </ul>
+    </section>
+
+    <div class="gallery-section">
+        <h2 style="margin-bottom: 15px;">Project Assets</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0;">Keyword research, content samples, analytics screenshots</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(0)">
+                <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=800&q=80" alt="Keyword Research">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(1)">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Content Calendar">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(2)">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80" alt="Analytics Dashboard">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(3)">
+                <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c9d6?auto=format&fit=crop&w=800&q=80" alt="Article Sample">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(4)">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="SEO Report">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(5)">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Competitor Analysis">
+            </div>
+        </div>
+        <a href="#" class="view-more-btn" onclick="alert('View more functionality'); return false;">View All 8 Assets</a>
+    </div>
+
+    <section class="section">
+        <div class="learnings-box">
+            <h3>Key Learnings</h3>
+            <ul>
+                <li><strong>AI-resistant content takes longer but ranks better</strong> - Genuine experience and original insights are hard to replicate at scale</li>
+                <li><strong>Long-tail keywords are easier to rank</strong> - Specific queries like "hiking boots for Indian monsoons" less competitive than "best hiking boots"</li>
+                <li><strong>Internal linking boosts rankings</strong> - Related articles linking to each other improved rankings by 5-10 positions</li>
+                <li><strong>Original photos matter</strong> - Google seems to recognize and reward unique imagery</li>
+                <li><strong>Patience is critical</strong> - SEO takes 3-6 months to show results; early metrics are promising but incomplete</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Next Steps</h2>
+        <ul>
+            <li>Publish remaining 10+ articles from content calendar</li>
+            <li>Build internal linking structure connecting all related articles</li>
+            <li>Add more multimedia (embedded videos from trips)</li>
+            <li>Engage with adventure travel community for organic backlinks</li>
+            <li>Update older articles with new information and links</li>
+            <li>Monitor Search Console for ranking improvements and adjust strategy</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Tools Used</h2>
+        <ul>
+            <li>Ahrefs (keyword research, competitor analysis)</li>
+            <li>Ubersuggest (additional keyword ideas)</li>
+            <li>Google Analytics (traffic tracking)</li>
+            <li>Google Search Console (rankings, indexing)</li>
+            <li>WordPress + Yoast SEO (content management)</li>
+            <li>Elementor (page building)</li>
+        </ul>
+    </section>
+
+    <div class="project-nav">
+        <a href="#" class="nav-project nav-prev">
+            <div class="nav-label">← Previous Project</div>
+            <div class="nav-title">Social Media Strategy</div>
+        </a>
+        <a href="#" class="nav-project nav-next">
+            <div class="nav-label">Next Project →</div>
+            <div class="nav-title">Another Project</div>
+        </a>
+    </div>
+
+    <footer>
+        <p>© 2026 Umair Abdullah · <a href="index.html" style="color: var(--primary-orange); text-decoration: none;">Back to Portfolio</a></p>
+    </footer>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close" onclick="closeLightbox()">×</div>
+        
+        <div class="lightbox-nav lightbox-prev" onclick="changeImage(-1); event.stopPropagation();">‹</div>
+        
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Gallery Image">
+        </div>
+        
+        <div class="lightbox-nav lightbox-next" onclick="changeImage(1); event.stopPropagation();">›</div>
+    </div>
+
+    <script>
+        const images = [
+            'https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1502005229762-cf1b2da7c9d6?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80'
+        ];
+
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById('lightbox-img').src = images[currentIndex];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            if (currentIndex >= images.length) currentIndex = 0;
+            document.getElementById('lightbox-img').src = images[currentIndex];
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') changeImage(-1);
+                if (e.key === 'ArrowRight') changeImage(1);
+            }
+        });
+    </script>
+
+</body>
+</html>

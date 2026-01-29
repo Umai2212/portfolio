@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umair Abdullah | Digital Marketing Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF5C35; /* Case Study Orange */
+            --dark-bg: #0A0A0A;        /* Case Study Deep Black */
+            --card-bg: #161616;        /* Case Study Card Gray */
+            --text-main: #E0E0E0;
+            --text-muted: #888;
+            --border: #2A2A2A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: var(--dark-bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .section-padding {
+            padding: 100px 10%;
+            position: relative;
+        }
+
+        .section-label {
+            position: absolute;
+            right: 10%;
+            top: 100px;
+            font-weight: bold;
+            color: var(--primary-orange);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            background: var(--primary-orange);
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 900;
+            transition: all 0.3s;
+        }
+
+        .logo:hover { transform: rotate(360deg); }
+
+        .btn-download {
+            text-decoration: none;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .btn-download:hover {
+            background: var(--primary-orange);
+            color: white;
+            border-color: var(--primary-orange);
+        }
+
+        /* Hero Section */
+        .hero { display: flex; min-height: 80vh; }
+
+        .hero-content {
+            flex: 1;
+            padding: 100px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #FFF;
+        }
+
+        .highlight { font-weight: 900; color: var(--primary-orange); }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin: 20px 0 30px 0;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons { display: flex; gap: 15px; margin-bottom: 50px; }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: white;
+            border: 2px solid var(--primary-orange);
+        }
+
+        .btn-primary:hover {
+            background: #e04525;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 92, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-orange);
+            border: 2px solid var(--primary-orange);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-orange);
+            color: white;
+        }
+
+        .contact-strip {
+            margin-top: 30px;
+            display: flex;
+            gap: 30px;
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            color: var(--text-muted);
+        }
+
+        .hero-image {
+            flex: 1;
+            background: var(--primary-orange);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            filter: grayscale(20%);
+        }
+
+        /* About Section - Photo Circle Fixes */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+        .abstract-shape { position: relative; width: 100%; height: 400px; }
+
+        .circle-orange {
+            position: absolute;
+            width: 320px; height: 320px;
+            background: var(--primary-orange);
+            opacity: 0.15;
+            border-radius: 50%;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.2; }
+        }
+
+        .circle-black {
+            position: absolute;
+            width: 250px; height: 250px;
+            background: var(--card-bg);
+            border: 4px solid var(--primary-orange);
+            border-radius: 50%;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden; /* Ensures image stays circular */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circle-black img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Crops image into the circle */
+        }
+
+        .about-text h2 { font-size: 2.5rem; margin-bottom: 20px; color: #FFF; }
+        .about-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 15px; }
+
+        .stats { display: flex; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+        .stat-item h3 { font-size: 2rem; color: #FFF; }
+        .stat-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* Experience Section */
+        .experience h2 { font-size: 2.5rem; margin-bottom: 40px; color: #FFF; }
+        .timeline-item { display: flex; margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 30px; }
+        .time-period { width: 200px; font-weight: bold; font-size: 1.2rem; color: var(--primary-orange); }
+        .time-period span { font-size: 0.9rem; color: var(--text-muted); display: block; margin-top: 5px; }
+        .company-info h4 { font-size: 1.2rem; margin-bottom: 10px; color: #FFF; }
+        .company-info li {
+            color: var(--text-muted); padding-left: 20px; position: relative;
+            margin-bottom: 8px; line-height: 1.6; list-style: none;
+        }
+        .company-info li:before { content: "▸"; color: var(--primary-orange); position: absolute; left: 0; }
+
+        /* Work Section */
+        .works h2 { font-size: 2.5rem; margin-bottom: 15px; color: #FFF; }
+        .works .subtitle { color: var(--text-muted); margin-bottom: 40px; }
+        .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px; }
+
+        .work-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            border-color: var(--primary-orange);
+        }
+
+        .work-card img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.3s; }
+        .work-card:hover img { transform: scale(1.05); }
+        .work-info { padding: 25px; }
+        .work-category { font-size: 0.75rem; color: var(--primary-orange); text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
+        .work-info h4 { font-size: 1.3rem; margin-bottom: 8px; color: #FFF; }
+        .work-info p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
+
+        .work-metrics { display: flex; gap: 10px; flex-wrap: wrap; }
+        .metric-tag { background: #222; padding: 5px 12px; border-radius: 15px; font-size: 0.75rem; color: #FFF; border: 1px solid var(--border); }
+        .view-case { color: var(--primary-orange); font-size: 0.85rem; font-weight: 600; margin-top: 15px; display: inline-block; }
+
+        /* Contact Section */
+        .contact h2 { font-size: 2.5rem; color: #FFF; }
+        .contact .subtitle { color: var(--text-muted); margin-bottom: 40px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        input, textarea {
+            width: 100%; padding: 15px; margin-bottom: 20px;
+            background: transparent; border: none;
+            border-bottom: 1px solid var(--border);
+            outline: none; color: white; transition: 0.3s;
+        }
+
+        input:focus, textarea:focus { border-bottom-color: var(--primary-orange); }
+
+        .btn-submit {
+            background: var(--primary-orange);
+            border: none; color: white;
+            padding: 12px 40px; border-radius: 25px;
+            cursor: pointer; transition: 0.3s; font-weight: 600;
+        }
+
+        footer { text-align: center; padding: 40px 10%; border-top: 1px solid var(--border); color: var(--text-muted); }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; }
+            .hero-content h1 { font-size: 3rem; }
+            .hero-image { min-height: 40vh; }
+            .about-grid, .work-grid { grid-template-columns: 1fr; }
+            .timeline-item { flex-direction: column; }
+            .time-period { margin-bottom: 15px; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">UA</div>
+        <a href="#" class="btn-download">Download Resume</a>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>I'm Umair 👋<br><span class="highlight">Digital Marketing Specialist</span></h1>
+            <p>I create data-driven marketing campaigns that deliver real results. Specializing in Meta Ads, SEO, and social media strategy for B2B SaaS and premium brands.</p>
+            
+            <div class="cta-buttons">
+                <a href="#work" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+
+            <div class="contact-strip">
+                <span>umairabdullah1821@gmail.com</span>
+                <span>+91 7899 832 547</span>
+                <span>adventurerdivine.com</span>
+            </div>
+        </div>
+        <!--<div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Umair Abdullah">
+        </div>-->
+    </header>
+
+    <section class="about section-padding">
+        <div class="section-label">01</div>
+        <div class="about-grid">
+            <div class="abstract-shape">
+                <div class="circle-orange"></div>
+                <div class="circle-black">
+                    <img src="umair 2.jpeg" alt="Umair Abdullah Portrait">
+                </div>
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I'm a performance-focused digital marketer who turns limited budgets into measurable results. Over the past year, I've generated 6M+ impressions, built content strategies for premium brands, and secured influencer partnerships with 25% response rates.</p>
+                <p>I believe great marketing combines creativity with analytics. Whether optimizing Meta ads to ₹1.74 CPR or building SEO strategies that compete with AI-generated content, I focus on what moves the needle.</p>
+                <div class="stats">
+                    <div class="stat-item"><h3>6M+</h3><p>Impressions Generated</p></div>
+                    <div class="stat-item"><h3>₹1.74</h3><p>Best CPR Achieved</p></div>
+                    <div class="stat-item"><h3>25%</h3><p>Influencer Response Rate</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience section-padding">
+        <div class="section-label">02</div>
+        <h2>Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="time-period">July - Oct 2025 <br><span>Digital Marketing Associate</span></div>
+                <div class="company-info">
+                    <h4>Design Brewery</h4>
+                    <ul>
+                        <li>Generated 6M+ impressions on ₹1,098 budget across Facebook/Instagram campaigns</li>
+                        <li>Created monthly content calendars for Nortek (lighting) and Saltworx (SaaS)</li>
+                        <li>Developed ad strategy for Fintree coaching institute through competitor analysis</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-period">Feb - May 2024 <br><span>SEO Executive</span></div>
+                <div class="company-info">
+                    <h4>Zilwaris Digital</h4>
+                    <ul>
+                        <li>Optimized 15+ websites with on-page SEO, meta tags, and internal linking</li>
+                        <li>Managed influencer outreach achieving 25% positive response rate</li>
+                        <li>Conducted keyword research using Ahrefs, SEMrush for client campaigns</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-period">Dec 2025 - Present <br><span>Independent Projects</span></div>
+                <div class="company-info">
+                    <h4>AdventurerDivine & ArrakisTechnologies</h4>
+                    <ul>
+                        <li>Built adventure blog with AEO strategy targeting AI-resistant content</li>
+                        <li>Developed AI voice platform with competitive pricing 20% better than market</li>
+                        <li>Executing email campaigns with Apollo targeting 200+ qualified B2B leads</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="works section-padding">
+        <div class="section-label">03</div>
+        <h2>Featured Work</h2>
+        <p class="subtitle">Click any project to view the detailed case study</p>
+        
+        <div class="work-grid">
+            <a href="Saltworx.html" class="work-card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Meta Ads Campaign">
+                <div class="work-info">
+                    <div class="work-category">Performance Marketing</div>
+                    <h4>Meta Ads Campaign</h4>
+                    <p>Generated exceptional reach across multiple ad formats for B2B SaaS platform on minimal budget.</p>
+                    <div class="work-metrics">
+                        <span class="metric-tag">6M+ Impressions</span>
+                        <span class="metric-tag">₹1.74 CPR</span>
+                        <span class="metric-tag">₹1,098 Budget</span>
+                    </div>
+                    <div class="view-case">View Case Study →</div>
+                </div>
+            </a>
+
+            <a href="nortek.html" class="work-card">
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="Social Media Strategy">
+                <div class="work-info">
+                    <div class="work-category">Social Media</div>
+                    <h4>12-Month Content Strategy</h4>
+                    <p>Developed comprehensive social media framework for premium lighting brand through competitive research.</p>
+                    <div class="work-metrics">
+                        <span class="metric-tag">365+ References</span>
+                        <span class="metric-tag">60+ Ideas/Month</span>
+                    </div>
+                    <div class="view-case">View Case Study →</div>
+                </div>
+            </a>
+
+            <a href="adventurerdivine.html" class="work-card">
+                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" alt="SEO Strategy">
+                <div class="work-info">
+                    <div class="work-category">SEO & Content</div>
+                    <h4>AEO Content Strategy</h4>
+                    <p>Built adventure travel blog targeting experience-based content that AI cannot replicate.</p>
+                    <div class="work-metrics">
+                        <span class="metric-tag">50+ Keywords</span>
+                        <span class="metric-tag">AI-Resistant</span>
+                    </div>
+                    <div class="view-case">View Case Study →</div>
+                </div>
+            </a>
+
+            <a href="pickleball.html" class="work-card">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80" alt="Influencer Marketing">
+                <div class="work-info">
+                    <div class="work-category">Influencer Marketing</div>
+                    <h4>Micro-Influencer Campaign</h4>
+                    <p>Managed end-to-end outreach for sports brand targeting micro-influencers in fitness niche.</p>
+                    <div class="work-metrics">
+                        <span class="metric-tag">40 Outreach</span>
+                        <span class="metric-tag">25% Response</span>
+                    </div>
+                    <div class="view-case">View Case Study →</div>
+                </div>
+            </a>
+
+            <a href="dr.daniel.html" class="work-card">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="B2B Strategy">
+                <div class="work-info">
+                    <div class="work-category">Strategy Development</div>
+                    <h4>B2B Revenue Model</h4>
+                    <p>Designed scalable corporate wellness strategy with three revenue streams for therapy practice.</p>
+                    <div class="work-metrics">
+                        <span class="metric-tag">3 Revenue Streams</span>
+                        <span class="metric-tag">B2B Focus</span>
+                    </div>
+                    <div class="view-case">View Case Study →</div>
+                </div>
+            </a>
+
+            <a href="arrakistechnologies.html" class="work-card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="SaaS Pricing">
+                <div class="work-info">
+                    <div class="work-category">SaaS Marketing</div>
+                    <h4>Competitive Pricing Strategy</h4>
+                    <p>Developed pricing model for AI voice platform positioning as premium yet 20% more affordable.</p>
+                    <div class="work-metrics">
+                        <span class="metric-tag">20% Savings</span>
+                        <span class="metric-tag">B2B SaaS</span>
+                    </div>
+                    <div class="view-case">View Case Study →</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer id="contact" class="contact section-padding">
+        <div class="section-label">04</div>
+        <h2>Let's Work Together</h2>
+        <p class="subtitle">Open to full-time opportunities, freelance projects, and collaborations</p>
+        <form id="contact-form">
+            <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <input type="text" placeholder="Name *" required>
+                <input type="tel" placeholder="Phone *" required>
+            </div>
+            <input type="email" placeholder="Email *" required>
+            <textarea placeholder="Message *" required></textarea>
+            <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+        <p style="margin-top: 60px; color: var(--text-muted);">© 2026 Umair Abdullah · Designed & built with passion</p>
+    </footer>
+
+</body>
+</html>

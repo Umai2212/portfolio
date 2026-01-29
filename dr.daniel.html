@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Strategy Development - Case Study | Umair Abdullah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF5C35;
+            --dark-bg: #0A0A0A;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-secondary: #888;
+            --border: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            background: var(--primary-orange);
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 900;
+            transition: all 0.3s;
+            text-decoration: none;
+            cursor: pointer; /* FIXED: Proper cursor */
+        }
+
+        .logo:hover {
+            transform: rotate(360deg);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Hero Section */
+        .case-hero {
+            padding: 80px 10% 60px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-orange);
+            text-decoration: none;
+        }
+
+        .case-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .case-meta {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-orange);
+        }
+
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 60px 10%;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-orange);
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px 0;
+            color: var(--text-main);
+        }
+
+        .section h4 {
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+            color: var(--text-main);
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 20px 0;
+        }
+
+        .section li {
+            color: var(--text-secondary);
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .section li:before {
+            content: "▸";
+            color: var(--primary-orange);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-orange);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: var(--card-bg);
+            padding: 60px 10%;
+            margin: 60px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--primary-orange);
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .view-more-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary-orange);
+            color: var(--primary-orange);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer; /* FIXED: Proper cursor */
+        }
+
+        .view-more-btn:hover {
+            background: var(--primary-orange);
+            color: white;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 40px 0;
+        }
+
+        .column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        /* Key Learnings Box */
+        .learnings-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-orange);
+            margin: 40px 0;
+        }
+
+        .learnings-box h3 {
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: rgba(255, 92, 53, 0.1);
+            color: var(--primary-orange);
+            font-weight: 600;
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* LIGHTBOX FIXES */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            user-select: none; /* FIXED: Prevent accidental text selection */
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            z-index: 2005;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            z-index: 2010;
+            transition: color 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-orange);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem; /* FIXED: Larger size */
+            color: white;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.15); /* FIXED: Clearer visibility */
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 2015;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-nav:hover {
+            background: var(--primary-orange);
+            border-color: var(--primary-orange);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 30px;
+        }
+
+        .lightbox-next {
+            right: 30px;
+        }
+
+        /* Project Navigation */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 60px 10%;
+            border-top: 1px solid var(--border);
+            gap: 40px;
+        }
+
+        .nav-project {
+            flex: 1;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-project:hover {
+            color: var(--primary-orange);
+        }
+
+        .nav-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .nav-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .nav-next {
+            text-align: right;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 10%;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-hero h1 { font-size: 2.5rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .two-column { grid-template-columns: 1fr; gap: 30px; }
+            .case-meta { flex-direction: column; gap: 20px; }
+            .project-nav { flex-direction: column; gap: 30px; }
+            .nav-next { text-align: left; }
+            .section { padding: 40px 5%; }
+            .lightbox-nav {
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
+            }
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">UA</a>
+        <a href="index.html#work" class="back-link">← Back to Portfolio</a>
+    </nav>
+
+    <section class="case-hero">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <a href="index.html#work">Work</a> / B2B Strategy Development
+        </div>
+        <h1>B2B Strategy Development for DMV Mental Health Solutions</h1>
+        <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 800px; margin-top: 15px;">
+            Developed multi-tier revenue model and go-to-market strategy for mental health therapist to scale practice.
+        </p>
+        <div class="case-meta">
+            <div class="meta-item">
+                <span class="meta-label">Client</span>
+                <span class="meta-value">Dr. Daniel - Mental Health Therapist</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Category</span>
+                <span class="meta-value">B2B Strategy</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Timeline</span>
+                <span class="meta-value">3 Months</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Role</span>
+                <span class="meta-value">Performance Marketing Consultant</span>
+            </div>
+        </div>
+    </section>
+
+    <img src="https://images.unsplash.com/photo-1518609875344-05b5d48ab4d1?auto=format&fit=crop&w=1600&q=80" alt="B2B Strategy Development" class="featured-image" style="padding: 0 10%;">
+
+    <section class="section">
+        <h2>Overview</h2>
+        <p>Private practice therapist seeking scalable revenue model. Strategy developed but not executed due to client constraints.</p>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Challenge</h2>
+        <p>Private practice therapist with:</p>
+        <ul>
+            <li>Zero marketing budget (no money for ads, tools, or services)</li>
+            <li>No video content (refused to record)</li>
+            <li>Individual session pricing: $165 per session</li>
+            <li>Inconsistent client acquisition through referrals only</li>
+            <li>Need for scalable, predictable revenue model</li>
+            <li>Competitive therapy market with established practitioners</li>
+        </ul>
+        <h3>Additional Constraints</h3>
+        <ul>
+            <li>Client unwilling to invest even minimal funds in marketing</li>
+            <li>Refused to create video content for social media</li>
+            <li>Expected results without any resource commitment</li>
+            <li>Performance-based payment (no base fee for strategy work)</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Strategy & Approach</h2>
+        
+        <h3>Phase 1: Business Model Analysis</h3>
+        <p>Identified fundamental problem:</p>
+        <ul>
+            <li>Individual therapy sessions don't scale (limited by therapist's time)</li>
+            <li>High per-session price ($165) creates barrier for many potential clients</li>
+            <li>Reliance on referrals creates unpredictable revenue</li>
+            <li>No differentiation from other therapists in market</li>
+        </ul>
+        <p>Solution: Develop three revenue streams with different price points and scalability.</p>
+
+        <h3>Phase 2: Revenue Model Development</h3>
+        <h4>Revenue Stream 1: B2B Corporate Wellness Program</h4>
+        <p>Target: Companies with 100-500 employees</p>
+        <h5>Offering Structure</h5>
+        <ul>
+            <li>Price: $100 per employee per month</li>
+            <li>Payment split: 50% company-paid (fringe benefit), 50% employee-paid (commitment)</li>
+            <li>Deliverables: 4 individual therapy sessions per month per enrolled employee</li>
+        </ul>
+        <h5>Value proposition for companies</h5>
+        <ul>
+            <li>Employee retention tool (mental health support reduces turnover)</li>
+            <li>Productivity enhancement (mentally healthy employees perform better)</li>
+            <li>Corporate social responsibility (shows company cares about employee wellbeing)</li>
+            <li>Tax deductible as employee benefit</li>
+        </ul>
+        <h5>Financial Model</h5>
+        <ul>
+            <li>1 company with 200 employees enrolled = $20,000/month recurring revenue</li>
+            <li>Target: 5 companies = $100,000/month potential</li>
+            <li>Higher lifetime value than individual clients</li>
+            <li>Predictable monthly recurring revenue</li>
+        </ul>
+        <h5>Go-to-Market Strategy</h5>
+        <ul>
+            <li>LinkedIn outreach to HR Directors and Chief People Officers</li>
+            <li>Pitch deck emphasizing ROI: reduced turnover saves $50K+ per prevented resignation</li>
+            <li>Free 1-month pilot program for 10 employees (prove value before full rollout)</li>
+            <li>Case studies from pilot to close larger deals</li>
+            <li>Position as employee retention tool, not just therapy</li>
+        </ul>
+
+        <h4>Revenue Stream 2: Community-Based Group Therapy</h4>
+        <p>Target: Individuals seeking affordable mental health support</p>
+        <h5>Offering Structure</h5>
+        <ul>
+            <li>Membership: $25 per month</li>
+            <li>Deliverables: 4 weekly group therapy sessions (1 per week)</li>
+            <li>Group size: 20-30 people per session</li>
+            <li>Segmentation: Groups organized by issue (anxiety, depression, workplace burnout, relationship stress)</li>
+            <li>Platform: Private online forum + weekly Zoom group sessions</li>
+        </ul>
+        <h5>Value Proposition</h5>
+        <ul>
+            <li>Affordable alternative to $165 individual sessions</li>
+            <li>Community support amplifies therapeutic outcomes</li>
+            <li>Consistent weekly support rather than sporadic individual sessions</li>
+            <li>Sense of belonging and shared experience</li>
+            <li>Lower barrier to entry encourages early intervention</li>
+        </ul>
+        <h5>Financial Model</h5>
+        <ul>
+            <li>Target: 1,000 members = $25,000/month recurring revenue</li>
+            <li>Scalable (one therapist serves 20-30 people simultaneously)</li>
+            <li>Higher revenue per therapist hour than individual sessions</li>
+            <li>Community creates retention (members don't want to leave group)</li>
+        </ul>
+        <h5>Go-to-Market Strategy</h5>
+        <ul>
+            <li>Organic social media content about specific mental health issues</li>
+            <li>Free introductory group session (lead magnet)</li>
+            <li>Testimonials from early members</li>
+            <li>Referral program (1 month free for successful referral)</li>
+        </ul>
+
+        <h4>Revenue Stream 3: Bulk Session Packages</h4>
+        <p>Target: Individuals committed to ongoing therapy</p>
+        <h5>Offering Structure</h5>
+        <ul>
+            <li>Single session: $165</li>
+            <li>10-session package: $100 per session ($1,000 total) - 40% savings</li>
+            <li>Encourages upfront commitment</li>
+            <li>Improves client outcomes (consistency matters in therapy)</li>
+            <li>Predictable cash flow for therapist</li>
+        </ul>
+        <h5>Why This Works</h5>
+        <ul>
+            <li>Bulk buyers are serious about improvement</li>
+            <li>Prepayment reduces no-shows</li>
+            <li>Discount incentivizes larger purchase</li>
+            <li>Better for client outcomes (therapy works best with consistency)</li>
+        </ul>
+
+        <h3>Phase 3: Content Marketing Strategy (Zero Budget)</h3>
+        <p>Platform: Instagram (organic reach)</p>
+        <h4>Content Strategy</h4>
+        <ul>
+            <li>Post 3-4 times per week (no posting cost)</li>
+            <li>Content types:<ul><li>Static posts: Mental health tips, myth-busting, destigmatization</li><li>Carousels: Educational content (5 signs of burnout, coping strategies)</li><li>AI-generated videos: Used Veo 3 to create professional videos without filming (addressed client's refusal to record)</li></ul></li>
+        </ul>
+        <h4>Content Themes</h4>
+        <ul>
+            <li>Normalize therapy and mental health discussions</li>
+            <li>Address common objections ("therapy is too expensive" → community model)</li>
+            <li>Share anonymous client success stories</li>
+            <li>Workplace mental health (target corporate decision-makers)</li>
+            <li>Self-help tips (provide value, build trust)</li>
+        </ul>
+        <h4>Hashtag Strategy</h4>
+        <ul>
+            <li>#mentalhealth #therapyworks #burnoutrecovery #anxietyrelief</li>
+            <li>#corporatewellness #employeewellbeing #mentalhealthmatters</li>
+        </ul>
+        <h4>Engagement Strategy</h4>
+        <ul>
+            <li>Respond to every comment</li>
+            <li>Engage with mental health community posts</li>
+            <li>Share relevant content from mental health advocates</li>
+            <li>Build authority and trust organically</li>
+        </ul>
+
+        <h3>Phase 4: B2B Outreach Plan</h3>
+        <h4>Target Companies</h4>
+        <ul>
+            <li>Tech startups (high-stress environments, progressive benefits culture)</li>
+            <li>Consulting firms (long hours, burnout risk)</li>
+            <li>Creative agencies (mental health awareness)</li>
+            <li>Size: 100-500 employees (large enough for revenue, small enough to access decision-makers)</li>
+        </ul>
+        <h4>Outreach Strategy</h4>
+        <ul>
+            <li>LinkedIn messages to HR Directors</li>
+            <li>Email campaigns to Chief People Officers</li>
+            <li>Pitch deck with ROI calculations</li>
+            <li>Emphasis on employee retention and productivity</li>
+        </ul>
+        <h4>Pitch Messaging</h4>
+        <ul>
+            <li>"Employee turnover costs $50K+ per resignation. Mental health support reduces turnover by 25%."</li>
+            <li>"Your employees' mental health directly impacts productivity, creativity, and retention."</li>
+            <li>"Offer therapy as a fringe benefit - 50% company-paid, 50% employee investment shows commitment."</li>
+        </ul>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Why Strategy Wasn't Executed</h2>
+        <p>Despite comprehensive planning, project failed because:</p>
+        <ul>
+            <li>Client refused to spend any money on business cards, website improvements, or basic tools</li>
+            <li>Wouldn't record videos for social media (despite AI solution offered)</li>
+            <li>Expected immediate results without any investment</li>
+            <li>Unwilling to offer free pilot program to prove concept</li>
+            <li>No commitment to implementing any of the three revenue streams</li>
+            <li>Wanted all upside with zero risk or investment</li>
+        </ul>
+        <p>Final Decision: After 2-3 months of free consulting without client action, I walked away. Realized best strategy is worthless without client buy-in and execution.</p>
+    </section>
+
+    <div class="gallery-section">
+        <h2 style="margin-bottom: 15px;">Project Assets</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0;">Strategy documents, revenue models, and pitch decks</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(0)">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80" alt="Revenue Model">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(1)">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Pitch Deck">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(2)">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="Content Strategy">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(3)">
+                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" alt="Outreach Plan">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(4)">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Financial Model">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(5)">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Business Analysis">
+            </div>
+        </div>
+        <a href="#" class="view-more-btn" onclick="alert('View more functionality'); return false;">View All 8 Assets</a>
+    </div>
+
+    <section class="section">
+        <div class="learnings-box">
+            <h3>Key Learnings</h3>
+            <ul>
+                <li><strong>Client buy-in is everything</strong> - Perfect strategy means nothing if client won't execute</li>
+                <li><strong>Some investment is mandatory</strong> - "Zero budget" is a red flag; even minimal investment shows seriousness</li>
+                <li><strong>B2B service models are powerful</strong> - Recurring revenue and scalability transform service businesses</li>
+                <li><strong>Community models work</strong> - Group therapy, cohort coaching, membership models create scale + retention</li>
+                <li><strong>Know when to walk away</strong> - Don't waste time on clients who won't invest in their own success</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Skills Demonstrated</h2>
+        <ul>
+            <li>B2B business model design</li>
+            <li>Pricing strategy and revenue modeling</li>
+            <li>Go-to-market planning</li>
+            <li>Multi-tiered offering development</li>
+            <li>ROI-based sales messaging</li>
+            <li>Content strategy for service businesses</li>
+            <li>Recognizing when to cut losses</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>What I Would Do Differently</h2>
+        <ul>
+            <li>Qualify clients upfront (minimum budget requirement)</li>
+            <li>Charge for strategy work (not performance-based)</li>
+            <li>Set clear expectations on client investment needed</li>
+            <li>Walk away faster when red flags appear</li>
+        </ul>
+    </section>
+
+    <div class="project-nav">
+        <a href="#" class="nav-project nav-prev">
+            <div class="nav-label">← Previous Project</div>
+            <div class="nav-title">Influencer Marketing</div>
+        </a>
+        <a href="#" class="nav-project nav-next">
+            <div class="nav-label">Next Project →</div>
+            <div class="nav-title">Meta Ads Campaign</div>
+        </a>
+    </div>
+
+    <footer>
+        <p>© 2026 Umair Abdullah · <a href="index.html" style="color: var(--primary-orange); text-decoration: none;">Back to Portfolio</a></p>
+    </footer>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close" onclick="closeLightbox()">×</div>
+        
+        <div class="lightbox-nav lightbox-prev" onclick="changeImage(-1); event.stopPropagation();">‹</div>
+        
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Gallery Image">
+        </div>
+        
+        <div class="lightbox-nav lightbox-next" onclick="changeImage(1); event.stopPropagation();">›</div>
+    </div>
+
+    <script>
+        const images = [
+            'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80'
+        ];
+
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById('lightbox-img').src = images[currentIndex];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            if (currentIndex >= images.length) currentIndex = 0;
+            document.getElementById('lightbox-img').src = images[currentIndex];
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') changeImage(-1);
+                if (e.key === 'ArrowRight') changeImage(1);
+            }
+        });
+    </script>
+
+</body>
+</html>
