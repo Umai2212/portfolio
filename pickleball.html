@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Influencer Marketing Campaign - Pickleball Brand | Umair Abdullah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF5C35;
+            --dark-bg: #0A0A0A;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-secondary: #888;
+            --border: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            background: var(--primary-orange);
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 900;
+            transition: all 0.3s;
+            text-decoration: none;
+            cursor: pointer; /* FIXED: Proper cursor */
+        }
+
+        .logo:hover {
+            transform: rotate(360deg);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Hero Section */
+        .case-hero {
+            padding: 80px 10% 60px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-orange);
+            text-decoration: none;
+        }
+
+        .case-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .case-meta {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-orange);
+        }
+
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 60px 10%;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-orange);
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px 0;
+            color: var(--text-main);
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 20px 0;
+        }
+
+        .section li {
+            color: var(--text-secondary);
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .section li:before {
+            content: "▸";
+            color: var(--primary-orange);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-orange);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: var(--card-bg);
+            padding: 60px 10%;
+            margin: 60px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--primary-orange);
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .view-more-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary-orange);
+            color: var(--primary-orange);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer; /* FIXED: Proper cursor */
+        }
+
+        .view-more-btn:hover {
+            background: var(--primary-orange);
+            color: white;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 40px 0;
+        }
+
+        .column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        /* Key Learnings Box */
+        .learnings-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-orange);
+            margin: 40px 0;
+        }
+
+        .learnings-box h3 {
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: rgba(255, 92, 53, 0.1);
+            color: var(--primary-orange);
+            font-weight: 600;
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* LIGHTBOX FIXES */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            user-select: none; /* FIXED: Prevent accidental text selection */
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            z-index: 2005;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            z-index: 2010;
+            transition: color 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-orange);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem; /* FIXED: Larger size */
+            color: white;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.15); /* FIXED: Clearer visibility */
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 2015;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-nav:hover {
+            background: var(--primary-orange);
+            border-color: var(--primary-orange);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 30px;
+        }
+
+        .lightbox-next {
+            right: 30px;
+        }
+
+        /* Project Navigation */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 60px 10%;
+            border-top: 1px solid var(--border);
+            gap: 40px;
+        }
+
+        .nav-project {
+            flex: 1;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-project:hover {
+            color: var(--primary-orange);
+        }
+
+        .nav-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .nav-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .nav-next {
+            text-align: right;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 10%;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-hero h1 { font-size: 2.5rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .two-column { grid-template-columns: 1fr; gap: 30px; }
+            .case-meta { flex-direction: column; gap: 20px; }
+            .project-nav { flex-direction: column; gap: 30px; }
+            .nav-next { text-align: left; }
+            .section { padding: 40px 5%; }
+            .lightbox-nav {
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
+            }
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">UA</a>
+        <a href="index.html#work" class="back-link">← Back to Portfolio</a>
+    </nav>
+
+    <section class="case-hero">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <a href="index.html#work">Work</a> / Influencer Marketing
+        </div>
+        <h1>Influencer Marketing for Pickleball Brand</h1>
+        <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 800px; margin-top: 15px;">
+            Outreach to 40 micro-influencers for emerging pickleball brand to build awareness through commission-based partnerships.
+        </p>
+        <div class="case-meta">
+            <div class="meta-item">
+                <span class="meta-label">Client</span>
+                <span class="meta-value">Sports Equipment Brand (Pickleball)</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Category</span>
+                <span class="meta-value">Influencer Marketing</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Duration</span>
+                <span class="meta-value">3 Months</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Role</span>
+                <span class="meta-value">SEO Executive</span>
+            </div>
+        </div>
+    </section>
+
+    <img src="pickleball-hero-image.jpeg" alt="Influencer Marketing Campaign" class="featured-image" style="padding: 0 10%;">
+
+    <section class="section">
+        <h2>Overview</h2>
+        <p>Emerging pickleball equipment brand seeking to build brand awareness through authentic influencer partnerships on a commission-only model.</p>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Challenge</h2>
+        <p>Emerging pickleball equipment brand with:</p>
+        <ul>
+            <li>Zero brand awareness in Indian sports market</li>
+            <li>No budget for paid influencer collaborations</li>
+            <li>Commission-only partnership model (25-35% of sales)</li>
+            <li>Need to build credibility and social proof</li>
+            <li>Competing with established badminton/tennis brands</li>
+        </ul>
+        <p>Key Constraint: Brand unwilling to send free products for testing. Insisted on commission-only model where influencers would purchase themselves or earn commission on sales. This made partnership negotiations extremely difficult.</p>
+    </section>
+
+    <section class="section">
+        <h2>Strategy & Approach</h2>
+        
+        <h3>Phase 1: Influencer Research</h3>
+        <p>Identified 40+ micro-influencers using:</p>
+        <ul>
+            <li>Instagram hashtag analysis: #pickleball #pickleballlife #pickleballindia #racketsports</li>
+            <li>Checked who was posting about pickleball regularly</li>
+            <li>Analyzed competitor brand collaborations</li>
+            <li>Evaluated engagement rates (minimum 3% required)</li>
+            <li>Assessed audience demographics and content quality</li>
+        </ul>
+        <h4>Selection Criteria</h4>
+        <ul>
+            <li>Follower count: 5K-50K (micro-influencer sweet spot)</li>
+            <li>Engagement rate: 3%+ (indicates authentic audience)</li>
+            <li>Content quality: High-quality photos/videos, consistent posting</li>
+            <li>Niche alignment: Sports, fitness, racquet sports enthusiasts</li>
+            <li>Audience demographics: Active lifestyle, sports participation, 25-45 age range</li>
+        </ul>
+        <h4>Influencer Tracking</h4>
+        <p>Created spreadsheet documenting:</p>
+        <ul>
+            <li>Influencer name and handle</li>
+            <li>Follower count and engagement rate</li>
+            <li>Content style and posting frequency</li>
+            <li>Contact information (email, DM availability)</li>
+            <li>Niche relevance score</li>
+            <li>Previous brand collaborations</li>
+        </ul>
+
+        <h3>Phase 2: Outreach Strategy</h3>
+        <p>Developed personalized outreach approach:</p>
+        <ul>
+            <li>No generic templates - each message customized</li>
+            <li>Mentioned specific posts I appreciated</li>
+            <li>Explained brand story and product benefits</li>
+            <li>Proposed partnership terms clearly upfront</li>
+            <li>Made it easy to say yes with simple next steps</li>
+        </ul>
+        <h4>Outreach Message Structure</h4>
+        <ol>
+            <li>Personal greeting referencing their content</li>
+            <li>Brief brand introduction (who we are, what we offer)</li>
+            <li>Why I thought they'd be a good fit (specific reasons)</li>
+            <li>Partnership proposal (commission structure or product exchange)</li>
+            <li>Clear next step (reply to discuss details)</li>
+        </ol>
+
+        <h3>Phase 3: Partnership Negotiation</h3>
+        <p>Proposed two models:</p>
+        <ul>
+            <li>Model A: Commission-only (25-35% of sales from their unique code)</li>
+            <li>Model B: Product exchange (free paddle for honest review + commission on future sales)</li>
+        </ul>
+        <p>Challenge: Brand insisted on Model A only. This created major friction because:</p>
+        <ul>
+            <li>Influencers want to test products before recommending to audience</li>
+            <li>Commission-only feels risky (what if product is poor quality?)</li>
+            <li>Established norm in influencer marketing is product exchange</li>
+            <li>Without product in hand, influencers can't create authentic content</li>
+        </ul>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Execution</h2>
+        <ul>
+            <li>Reached out to 40 micro-influencers via Instagram DMs and email</li>
+            <li>Personalized each outreach message with specific content references</li>
+            <li>Followed up 2-3 times with non-responders (polite, value-add follow-ups)</li>
+            <li>Negotiated with interested influencers on partnership terms</li>
+            <li>Coordinated between brand and influencers on commission setup</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Results</h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">40</div>
+                <div class="stat-label">Outreach Attempts</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Positive Responses</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">25%</div>
+                <div class="stat-label">Response Rate</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">6-8</div>
+                <div class="stat-label">Interested Influencers</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Finalized Partnerships</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">180K+</div>
+                <div class="stat-label">Potential Reach</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Campaign Outcome &amp; Learnings</h2>
+        <p>The outreach phase was successfully completed — 40 influencers contacted, 10 positive responses received, and 6-8 progressed to negotiation stage. The partnerships did not finalize due to the brand's commission-only model, which created friction in negotiation since influencers needed product samples to create authentic content.</p>
+        <p>This campaign validated the outreach approach — a 25% response rate from personalised DM and email outreach is above industry average for cold influencer outreach. The constraint was the offer structure, not the outreach quality.</p>
+    </section>
+
+    <section class="section">
+        <div class="learnings-box">
+            <h3>Key Learnings</h3>
+            <ul>
+                <li><strong>Personalisation drives response rates</strong> — customised outreach referencing specific content achieved 25% reply rate, well above cold outreach averages</li>
+                <li><strong>Commission-only models have high rejection rates</strong> — influencers need to test products before recommending to protect their audience trust</li>
+                <li><strong>Micro-influencers are the right starting point</strong> — 5K-50K accounts showed genuine engagement and were more open to new brand partnerships</li>
+                <li><strong>Outreach volume needs to be tracked systematically</strong> — a spreadsheet tracking status, follow-up dates, and response notes is essential</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Recommended Model</h2>
+        <ul>
+            <li>Send free product (₹2,000-3,000 investment per influencer)</li>
+            <li>Request honest review (1 post + 2-3 stories)</li>
+            <li>Offer 15-20% ongoing commission on sales from their code</li>
+            <li>Build long-term relationships rather than transactional one-offs</li>
+        </ul>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Skills Demonstrated</h2>
+        <ul>
+            <li>Influencer research and vetting</li>
+            <li>Personalized outreach and relationship building</li>
+            <li>Negotiation and partnership structuring</li>
+            <li>Campaign planning and coordination</li>
+            <li>Understanding influencer marketing economics</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Tools Used</h2>
+        <ul>
+            <li>Instagram (research and outreach)</li>
+            <li>Google Sheets (influencer tracking)</li>
+            <li>Email (follow-up communication)</li>
+            <li>Hashtag analysis for discovery</li>
+        </ul>
+    </section>
+
+    <div class="project-nav">
+        <a href="dr_daniel.html" class="nav-project nav-prev">
+            <div class="nav-label">← Previous Project</div>
+            <div class="nav-title">B2B Outreach Strategy</div>
+        </a>
+        <a href="Saltworx.html" class="nav-project nav-next">
+            <div class="nav-label">Next Project →</div>
+            <div class="nav-title">Meta Ads Campaign</div>
+        </a>
+    </div>
+
+    <footer>
+        <p>© 2026 Umair Abdullah · <a href="index.html" style="color: var(--primary-orange); text-decoration: none;">Back to Portfolio</a></p>
+    </footer>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close" onclick="closeLightbox()">×</div>
+        
+        <div class="lightbox-nav lightbox-prev" onclick="changeImage(-1); event.stopPropagation();">‹</div>
+        
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Gallery Image">
+        </div>
+        
+        <div class="lightbox-nav lightbox-next" onclick="changeImage(1); event.stopPropagation();">›</div>
+    </div>
+
+    <script>
+        const images = [];
+
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById('lightbox-img').src = images[currentIndex];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            if (currentIndex >= images.length) currentIndex = 0;
+            document.getElementById('lightbox-img').src = images[currentIndex];
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') changeImage(-1);
+                if (e.key === 'ArrowRight') changeImage(1);
+            }
+        });
+    </script>
+
+</body>
+</html>

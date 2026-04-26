@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Content Strategy - Nortek Lighting | Umair Abdullah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF5C35;
+            --dark-bg: #0A0A0A;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-secondary: #888;
+            --border: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            background: var(--primary-orange);
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 900;
+            transition: all 0.3s;
+            text-decoration: none;
+            cursor: pointer; /* FIXED: Proper cursor */
+        }
+
+        .logo:hover {
+            transform: rotate(360deg);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            color: var(--primary-orange);
+        }
+
+        /* Hero Section */
+        .case-hero {
+            padding: 80px 10% 60px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-orange);
+            text-decoration: none;
+        }
+
+        .case-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .case-meta {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-orange);
+        }
+
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 60px 10%;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-orange);
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px 0;
+            color: var(--text-main);
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 20px 0;
+        }
+
+        .section li {
+            color: var(--text-secondary);
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .section li:before {
+            content: "▸";
+            color: var(--primary-orange);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-orange);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: var(--card-bg);
+            padding: 60px 10%;
+            margin: 60px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--primary-orange);
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .view-more-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary-orange);
+            color: var(--primary-orange);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer; /* FIXED: Proper cursor */
+        }
+
+        .view-more-btn:hover {
+            background: var(--primary-orange);
+            color: white;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 40px 0;
+        }
+
+        .column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        /* Key Learnings Box */
+        .learnings-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-orange);
+            margin: 40px 0;
+        }
+
+        .learnings-box h3 {
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: rgba(255, 92, 53, 0.1);
+            color: var(--primary-orange);
+            font-weight: 600;
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* LIGHTBOX FIXES */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            user-select: none; /* FIXED: Prevent accidental text selection */
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            z-index: 2005;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            z-index: 2010;
+            transition: color 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-orange);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem; /* FIXED: Larger size */
+            color: white;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.15); /* FIXED: Clearer visibility */
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 2015;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-nav:hover {
+            background: var(--primary-orange);
+            border-color: var(--primary-orange);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: 30px;
+        }
+
+        .lightbox-next {
+            right: 30px;
+        }
+
+        /* Project Navigation */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 60px 10%;
+            border-top: 1px solid var(--border);
+            gap: 40px;
+        }
+
+        .nav-project {
+            flex: 1;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-project:hover {
+            color: var(--primary-orange);
+        }
+
+        .nav-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .nav-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .nav-next {
+            text-align: right;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 10%;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-hero h1 { font-size: 2.5rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .two-column { grid-template-columns: 1fr; gap: 30px; }
+            .case-meta { flex-direction: column; gap: 20px; }
+            .project-nav { flex-direction: column; gap: 30px; }
+            .nav-next { text-align: left; }
+            .section { padding: 40px 5%; }
+            .lightbox-nav {
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
+            }
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">UA</a>
+        <a href="index.html#work" class="back-link">← Back to Portfolio</a>
+    </nav>
+
+    <section class="case-hero">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <a href="index.html#work">Work</a> / Social Media Strategy
+        </div>
+        <h1>Social Media Strategy for Nortek Lighting</h1>
+        <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 800px; margin-top: 15px;">
+            Built monthly content calendars and social media strategy for a premium lighting brand across Instagram, Facebook, and Pinterest — covering 3 months of planned content.
+        </p>
+        <div class="case-meta">
+            <div class="meta-item">
+                <span class="meta-label">Client</span>
+                <span class="meta-value">Nortek - Premium Lighting Brand</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Category</span>
+                <span class="meta-value">Social Media Marketing</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Duration</span>
+                <span class="meta-value">3 Months</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Role</span>
+                <span class="meta-value">Digital Marketing Associate</span>
+            </div>
+        </div>
+    </section>
+
+    <img src="Nortek-hero-image.jpeg" alt="Social Media Strategy" class="featured-image" style="padding: 0 10%;">
+
+    <section class="section">
+        <h2>Overview</h2>
+        <p>Nortek is a premium lighting brand based in Mumbai, specializing in home decor. The project involved creating a robust social media strategy including monthly content calendars, competitive research, and design strategy across Instagram, Facebook, and Pinterest.</p>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Challenge</h2>
+        <p>Nortek is a premium lighting brand with minimal social media presence competing in a crowded home decor market. They needed:</p>
+        <ul>
+            <li>Consistent brand voice and visual identity across platforms</li>
+            <li>Strategic content plan to engage homeowners and interior designers</li>
+            <li>Differentiation from competitors selling similar products</li>
+            <li>Cost-effective content production without large agency budgets</li>
+            <li>Content that showcases products while providing value beyond sales pitches</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Strategy & Approach</h2>
+        
+        <h3>Phase 1: Competitive Research (2 weeks)</h3>
+        <ul>
+            <li>Analyzed 5 direct competitors in premium lighting space</li>
+            <li>Reviewed their full year of content across Instagram, Pinterest, Facebook</li>
+            <li>Analyzed competitor content across Instagram, Pinterest, and Facebook — reviewed seasonal campaigns, top-performing post types, and content gaps</li>
+            <li>Documented what content types performed best: room transformations, lighting tips, installation showcases, behind-the-scenes</li>
+            <li>Curated design references from top-performing posts</li>
+        </ul>
+
+        <h3>Phase 2: Content Framework Development</h3>
+        <p>Established 40/30/20/10 content distribution model:</p>
+        <ul>
+            <li>40% Educational (lighting tips, room-specific advice, design principles)</li>
+            <li>30% Product showcases (features, installations, applications)</li>
+            <li>20% Lifestyle & inspiration (aspirational home content, mood boards)</li>
+            <li>10% Promotional (sales, new launches, special offers)</li>
+        </ul>
+
+        <h3>Phase 3: Content Calendar Creation</h3>
+        <p>Created monthly content calendars for 3-4 months containing:</p>
+        <ul>
+            <li>15-20 content ideas per month</li>
+            <li>Posting schedule (3-4 posts per week on Instagram/Facebook)</li>
+            <li>Content format mix (static posts, carousels, reels, stories)</li>
+            <li>Seasonal alignment (Diwali, home renovation season, festive occasions)</li>
+            <li>Hashtag strategy for each post category</li>
+        </ul>
+
+        <h3>Phase 4: Design Direction</h3>
+        <ul>
+            <li>Curated design references organized by content type — product focus, lifestyle, educational, and promotional — to guide the design team visually</li>
+            <li>Organized references by content type: product focus, lifestyle, educational, promotional</li>
+            <li>Provided creative briefs to design team with visual direction</li>
+            <li>Ensured brand consistency across all content pieces</li>
+        </ul>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Execution</h2>
+        <ul>
+            <li>Collaborated with design team weekly to review upcoming content</li>
+            <li>Provided detailed briefs including copy suggestions, visual direction, CTA recommendations</li>
+            <li>Researched trending home decor topics to keep content relevant</li>
+            <li>Adapted calendar based on product launches and seasonal opportunities</li>
+            <li>Created hashtag sets targeting #interiordesign #homedecor #lightingdesign #mumbaiinteriors</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Key Deliverables</h2>
+        <ul>
+            <li>3 monthly content calendars with 15-20 ideas per month across Reels, Carousels, and Static posts</li>
+            <li>Competitive analysis report documenting competitor strategies</li>
+            <li>Content briefs with visual direction for each post — including copy suggestions, CTA recommendations, and hashtag sets</li>
+            <li>Content pillar framework document</li>
+            <li>Hashtag strategy with 30+ relevant tags per category</li>
+            <li>Posting schedule recommendations based on audience insights</li>
+        </ul>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Results</h2>
+        <ul>
+            <li>Client received turnkey social media strategy with 3-4 months of ready-to-execute content</li>
+            <li>Design team had clear creative direction reducing decision fatigue</li>
+            <li>Established consistent brand voice and visual identity</li>
+            <li>Calendar provided structure while allowing flexibility for timely content</li>
+            <li>Strategy informed by data-driven competitive research rather than guesswork</li>
+        </ul>
+    </section>
+
+    <div class="gallery-section">
+        <h2 style="margin-bottom: 15px;">Content Calendar Previews</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0;">Screenshots of the monthly content calendars built for Nortek. Click any image to view the full working calendar.</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <a href="June 2025.html" target="">
+                    <img src="june-2025.png" alt="July 2024 Content Calendar">
+                </a>
+                <p style="text-align:center; margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">July 2024 — Full Calendar</p>
+            </div>
+            <div class="gallery-item">
+                <a href="July 2025.html" target="">
+                    <img src="july-2025.png" alt="August 2024 Content Calendar">
+                </a>
+                <p style="text-align:center; margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">August 2024 — Full Calendar</p>
+            </div>
+            <div class="gallery-item">
+                <a href="August 2025.html" target="">
+                    <img src="august-2025.png" alt="September 2024 Content Calendar">
+                </a>
+                <p style="text-align:center; margin-top: 10px; color: var(--text-secondary); font-size: 0.9rem;">September 2024 — Full Calendar</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="learnings-box">
+            <h3>Key Learnings</h3>
+            <ul>
+                <li><strong>Research drives strategy</strong> - Analyzing competitors' full year revealed seasonal patterns and content gaps we could exploit</li>
+                <li><strong>Quality over quantity</strong> - Better to have 15 well-researched ideas than 30 random posts</li>
+                <li><strong>Visual references are essential</strong> - Designers need inspiration, not just written briefs</li>
+                <li><strong>B2C premium brands need aspiration</strong> - Lifestyle and inspirational content performed better than pure product shots</li>
+                <li><strong>Flexibility matters</strong> - Monthly calendars better than rigid yearly plans; allows adaptation to trends and launches</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Tools Used</h2>
+        <ul>
+            <li>Instagram, Pinterest, Facebook for research</li>
+            <li>Google Sheets for calendar organization</li>
+            <li>Canva for design reference curation</li>
+            <li>Competitor profiles for benchmarking</li>
+        </ul>
+    </section>
+
+    <div class="project-nav">
+        <a href="Saltworx.html" class="nav-project nav-prev">
+            <div class="nav-label">← Previous Project</div>
+            <div class="nav-title">Meta Ads Campaign</div>
+        </a>
+        <a href="pickleball.html" class="nav-project nav-next">
+            <div class="nav-label">Next Project →</div>
+            <div class="nav-title">Influencer Marketing Campaign</div>
+        </a>
+    </div>
+
+    <footer>
+        <p>© 2026 Umair Abdullah · <a href="index.html" style="color: var(--primary-orange); text-decoration: none;">Back to Portfolio</a></p>
+    </footer>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close" onclick="closeLightbox()">×</div>
+        
+        <div class="lightbox-nav lightbox-prev" onclick="changeImage(-1); event.stopPropagation();">‹</div>
+        
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Gallery Image">
+        </div>
+        
+        <div class="lightbox-nav lightbox-next" onclick="changeImage(1); event.stopPropagation();">›</div>
+    </div>
+
+    <script>
+        const images = [
+            'june 2025.html',
+            'july 2025.html',
+            'August 2025.html'
+        ];
+
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById('lightbox-img').src = images[currentIndex];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            if (currentIndex >= images.length) currentIndex = 0;
+            document.getElementById('lightbox-img').src = images[currentIndex];
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') changeImage(-1);
+                if (e.key === 'ArrowRight') changeImage(1);
+            }
+        });
+    </script>
+
+</body>
+</html>
