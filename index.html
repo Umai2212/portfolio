@@ -7,19 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-orange: #FF5C35; /* Case Study Orange */
-            --dark-bg: #0A0A0A;        /* Case Study Deep Black */
-            --card-bg: #161616;        /* Case Study Card Gray */
+            --primary-orange: #FF5C35;
+            --dark-bg: #0A0A0A;
+            --card-bg: #161616;
             --text-main: #E0E0E0;
             --text-muted: #888;
             --border: #2A2A2A;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -29,10 +25,7 @@
             overflow-x: hidden;
         }
 
-        .section-padding {
-            padding: 100px 10%;
-            position: relative;
-        }
+        .section-padding { padding: 100px 10%; position: relative; }
 
         .section-label {
             position: absolute;
@@ -89,7 +82,7 @@
             border-color: var(--primary-orange);
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero { display: flex; min-height: 80vh; }
 
         .hero-content {
@@ -100,13 +93,7 @@
             justify-content: center;
         }
 
-        .hero-content h1 {
-            font-size: 4.5rem;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: #FFF;
-        }
-
+        .hero-content h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px; color: #FFF; }
         .highlight { font-weight: 900; color: var(--primary-orange); }
 
         .hero-content p {
@@ -129,28 +116,10 @@
             display: inline-block;
         }
 
-        .btn-primary {
-            background: var(--primary-orange);
-            color: white;
-            border: 2px solid var(--primary-orange);
-        }
-
-        .btn-primary:hover {
-            background: #e04525;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 92, 53, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary-orange);
-            border: 2px solid var(--primary-orange);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-orange);
-            color: white;
-        }
+        .btn-primary { background: var(--primary-orange); color: white; border: 2px solid var(--primary-orange); }
+        .btn-primary:hover { background: #e04525; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,92,53,0.3); }
+        .btn-secondary { background: transparent; color: var(--primary-orange); border: 2px solid var(--primary-orange); }
+        .btn-secondary:hover { background: var(--primary-orange); color: white; }
 
         .contact-strip {
             margin-top: 30px;
@@ -162,24 +131,8 @@
             color: var(--text-muted);
         }
 
-        .hero-image {
-            flex: 1;
-            background: var(--primary-orange);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.85;
-            filter: grayscale(20%);
-        }
-
-        /* About Section - Photo Circle Fixes */
+        /* About */
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-
         .abstract-shape { position: relative; width: 100%; height: 400px; }
 
         .circle-orange {
@@ -206,29 +159,24 @@
             border-radius: 50%;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            overflow: hidden; /* Ensures image stays circular */
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .circle-black img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Crops image into the circle */
-        }
+        .circle-black img { width: 100%; height: 100%; object-fit: cover; }
 
         .about-text h2 { font-size: 2.5rem; margin-bottom: 20px; color: #FFF; }
         .about-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 15px; }
-
         .stats { display: flex; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
         .stat-item h3 { font-size: 2rem; color: #FFF; }
         .stat-item p { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* Experience Section */
+        /* Experience */
         .experience h2 { font-size: 2.5rem; margin-bottom: 40px; color: #FFF; }
         .timeline-item { display: flex; margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 30px; }
-        .time-period { width: 200px; font-weight: bold; font-size: 1.2rem; color: var(--primary-orange); }
+        .time-period { width: 200px; font-weight: bold; font-size: 1.2rem; color: var(--primary-orange); flex-shrink: 0; }
         .time-period span { font-size: 0.9rem; color: var(--text-muted); display: block; margin-top: 5px; }
         .company-info h4 { font-size: 1.2rem; margin-bottom: 10px; color: #FFF; }
         .company-info li {
@@ -237,7 +185,89 @@
         }
         .company-info li:before { content: "▸"; color: var(--primary-orange); position: absolute; left: 0; }
 
-        /* Work Section */
+        /* Paid Ads Strip */
+        .paid-ads-strip {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 60px 10%;
+        }
+
+        .paid-ads-strip .strip-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .paid-ads-strip h2 { font-size: 1.8rem; color: #FFF; }
+        .paid-ads-strip .strip-sub { color: var(--text-muted); font-size: 0.9rem; margin-top: 6px; }
+
+        .ads-numbers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .ads-stat {
+            background: var(--dark-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .ads-stat:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-3px);
+        }
+
+        .ads-stat .num {
+            font-size: 1.9rem;
+            font-weight: 900;
+            color: var(--primary-orange);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .ads-stat .lbl { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+
+        .ads-channels {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .channel-tag {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+        }
+
+        .btn-view-ads {
+            display: inline-block;
+            padding: 11px 28px;
+            background: transparent;
+            border: 2px solid var(--primary-orange);
+            color: var(--primary-orange);
+            border-radius: 25px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-view-ads:hover { background: var(--primary-orange); color: white; }
+
+        /* Work */
         .works h2 { font-size: 2.5rem; margin-bottom: 15px; color: #FFF; }
         .works .subtitle { color: var(--text-muted); margin-bottom: 40px; }
         .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px; }
@@ -254,24 +284,18 @@
             display: block;
         }
 
-        .work-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-            border-color: var(--primary-orange);
-        }
-
+        .work-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.5); border-color: var(--primary-orange); }
         .work-card img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.3s; }
         .work-card:hover img { transform: scale(1.05); }
         .work-info { padding: 25px; }
         .work-category { font-size: 0.75rem; color: var(--primary-orange); text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
         .work-info h4 { font-size: 1.3rem; margin-bottom: 8px; color: #FFF; }
         .work-info p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
-
         .work-metrics { display: flex; gap: 10px; flex-wrap: wrap; }
         .metric-tag { background: #222; padding: 5px 12px; border-radius: 15px; font-size: 0.75rem; color: #FFF; border: 1px solid var(--border); }
         .view-case { color: var(--primary-orange); font-size: 0.85rem; font-weight: 600; margin-top: 15px; display: inline-block; }
 
-        /* Contact Section */
+        /* Contact */
         .contact h2 { font-size: 2.5rem; color: #FFF; }
         .contact .subtitle { color: var(--text-muted); margin-bottom: 40px; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -297,11 +321,11 @@
         @media (max-width: 768px) {
             .hero { flex-direction: column-reverse; }
             .hero-content h1 { font-size: 3rem; }
-            .hero-image { min-height: 40vh; }
             .about-grid, .work-grid { grid-template-columns: 1fr; }
             .timeline-item { flex-direction: column; }
-            .time-period { margin-bottom: 15px; }
+            .time-period { margin-bottom: 15px; width: 100%; }
             .form-row { grid-template-columns: 1fr; }
+            .ads-numbers { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -315,8 +339,8 @@
     <header class="hero">
         <div class="hero-content">
             <h1>I'm Umair 👋<br><span class="highlight">Digital Marketer</span></h1>
-            <p>I run paid campaigns, build SEO strategies, and do B2B outreach — with actual numbers to back it up. ~8 months of agency experience across Meta Ads, SEO, and content, plus hands-on work with AI automation tools.</p>
-            
+            <p>Digital Marketing Manager at Elite IIT, Bangalore. I run paid campaigns on Meta and Google, build SEO strategies, and manage local search — with real numbers to back it up.</p>
+
             <div class="cta-buttons">
                 <a href="#work" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -328,9 +352,6 @@
                 <span>Tumkur / Bangalore, India</span>
             </div>
         </div>
-        <!--<div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Umair Abdullah">
-        </div>-->
     </header>
 
     <section class="about section-padding">
@@ -344,12 +365,13 @@
             </div>
             <div class="about-text">
                 <h2>About Me</h2>
-                <p>I'm a digital marketer who focuses on work that's measurable. Over the past year, I've run Meta ad campaigns that generated 6M+ impressions on a shoestring budget, done B2B cold outreach that landed a recurring paid contract, and built SEO strategies for clients in competitive niches.</p>
-                <p>I like understanding how things work — whether that's optimising an ad set to ₹1.74 CPR or setting up an AI voice system with Vapi and n8n. I'm most useful when there's a real problem to solve, not just content to produce.</p>
+                <p>I'm a digital marketer who works with real budgets and real accountability. Currently managing all digital marketing for Elite IIT — a 4-branch coaching institute in Bangalore — across Meta Ads, Google Ads, SEO, GBP, and landing pages. Sole person responsible, no agency support.</p>
+                <p>Before this, I ran Meta Ads campaigns at Design Brewery that generated 6M+ impressions on ₹1,098 total spend, and built SEO strategies and B2B outreach campaigns at Zilwaris Digital. I'm most useful when there's a real problem to solve and a number to beat.</p>
                 <div class="stats">
-                    <div class="stat-item"><h3>6M+</h3><p>Impressions Generated</p></div>
-                    <div class="stat-item"><h3>₹1.74</h3><p>Best CPR Achieved</p></div>
-                    <div class="stat-item"><h3>25%</h3><p>B2B Outreach Reply Rate</p></div>
+                    <div class="stat-item"><h3>454</h3><p>Leads in 30 Days</p></div>
+                    <div class="stat-item"><h3>₹51.11</h3><p>Avg CPL — Elite IIT</p></div>
+                    <div class="stat-item"><h3>6M+</h3><p>Impressions — Saltworx</p></div>
+                    <div class="stat-item"><h3>#2</h3><p>Google Rank — Malleshwaram</p></div>
                 </div>
             </div>
         </div>
@@ -359,6 +381,23 @@
         <div class="section-label">02</div>
         <h2>Experience</h2>
         <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="time-period">May 2026 - Present <br><span>Digital Marketing Manager</span></div>
+                <div class="company-info">
+                    <h4>Elite IIT Coaching, Bangalore</h4>
+                    <ul>
+                        <li>Sole digital marketer managing Meta Ads, Google Ads, SEO, GBP, and landing pages across 4 branches</li>
+                        <li>Generated 454 leads in 30 days at ₹51.11 CPL — below the previous freelancer's ₹53.37 while improving lead quality</li>
+                        <li>Best campaign CPL: ₹30.13 — lowest in the account's 18-month history</li>
+                        <li>Ranked Malleshwaram branch #2 on Google Search and #4 on Google Maps within one month</li>
+                        <li>Fixed broken Google Ads conversion tracking in 15 hours — had been undetected since account launch</li>
+                        <li>Grew NEET page from rank ~24 toward page 1; content expanded from 2,200 to 4,800 words</li>
+                        <li>Launched NEET Crash Course campaign same day re-exam was announced — 104 leads generated</li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="timeline-item">
                 <div class="time-period">Jun - Sep 2025 <br><span>Digital Marketing Associate (Internship)</span></div>
                 <div class="company-info">
@@ -371,6 +410,7 @@
                     </ul>
                 </div>
             </div>
+
             <div class="timeline-item">
                 <div class="time-period">Nov 2024 - Mar 2025 <br><span>SEO Executive (Internship)</span></div>
                 <div class="company-info">
@@ -382,6 +422,7 @@
                     </ul>
                 </div>
             </div>
+
             <div class="timeline-item">
                 <div class="time-period">Sep - Oct 2025 <br><span>B2B Outreach Consultant (Contract)</span></div>
                 <div class="company-info">
@@ -392,6 +433,7 @@
                     </ul>
                 </div>
             </div>
+
             <div class="timeline-item">
                 <div class="time-period">Oct 2025 - Feb 2026 <br><span>AI Automation Specialist (Self-Employed)</span></div>
                 <div class="company-info">
@@ -403,21 +445,87 @@
                     </ul>
                 </div>
             </div>
+
         </div>
     </section>
+
+    <!-- Paid Ads Strip -->
+    <div class="paid-ads-strip">
+        <div class="strip-header">
+            <div>
+                <h2>Paid Advertising</h2>
+                <p class="strip-sub">Meta Ads &amp; Google Ads — live campaigns, real budgets, verified numbers</p>
+            </div>
+            <a href="eliteiit.html" class="btn-view-ads">View Full Case Study →</a>
+        </div>
+
+        <div class="ads-numbers">
+            <div class="ads-stat">
+                <span class="num">454</span>
+                <span class="lbl">Leads in 30 Days<br>Elite IIT</span>
+            </div>
+            <div class="ads-stat">
+                <span class="num">₹51.11</span>
+                <span class="lbl">Avg CPL<br>vs ₹53.37 previous</span>
+            </div>
+            <div class="ads-stat">
+                <span class="num">₹30.13</span>
+                <span class="lbl">Best Campaign CPL<br>Lowest in 18-month history</span>
+            </div>
+            <div class="ads-stat">
+                <span class="num">₹23,202</span>
+                <span class="lbl">Ad Spend Managed<br>Month 1</span>
+            </div>
+            <div class="ads-stat">
+                <span class="num">6M+</span>
+                <span class="lbl">Impressions<br>₹1,098 budget — Saltworx</span>
+            </div>
+            <div class="ads-stat">
+                <span class="num">₹1.74</span>
+                <span class="lbl">Best CPR<br>Saltworx Meta Ads</span>
+            </div>
+        </div>
+
+        <div class="ads-channels">
+            <span class="channel-tag">Meta Ads Manager</span>
+            <span class="channel-tag">Google Ads</span>
+            <span class="channel-tag">Google Tag Manager</span>
+            <span class="channel-tag">Meta Pixel</span>
+            <span class="channel-tag">WhatsApp Lead Funnels</span>
+            <span class="channel-tag">Conversion Tracking</span>
+            <span class="channel-tag">Campaign Segmentation</span>
+            <span class="channel-tag">Audience Targeting</span>
+        </div>
+    </div>
 
     <section id="work" class="works section-padding">
         <div class="section-label">03</div>
         <h2>Featured Work</h2>
         <p class="subtitle">Click any project to view the detailed case study</p>
-        
+
         <div class="work-grid">
+
+            <a href="eliteiit.html" class="work-card">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Elite IIT Digital Marketing">
+                <div class="work-info">
+                    <div class="work-category">Full-Stack Digital Marketing</div>
+                    <h4>Elite IIT Coaching — Month 1</h4>
+                    <p>Sole digital marketing manager across Meta Ads, Google Ads, SEO, and GBP for a 4-branch coaching institute in Bangalore.</p>
+                    <div class="work-metrics">
+                        <span class="metric-tag">454 Leads</span>
+                        <span class="metric-tag">₹51.11 CPL</span>
+                        <span class="metric-tag">Rank #2 Malleshwaram</span>
+                    </div>
+                    <div class="view-case">View Case Study →</div>
+                </div>
+            </a>
+
             <a href="Saltworx.html" class="work-card">
                 <img src="Saltworxs-hero-image.jpeg" alt="Meta Ads Campaign">
                 <div class="work-info">
                     <div class="work-category">Performance Marketing</div>
-                    <h4>Meta Ads Campaign</h4>
-                    <p>Generated exceptional reach across multiple ad formats for B2B SaaS platform on minimal budget.</p>
+                    <h4>Meta Ads Campaign — Saltworx</h4>
+                    <p>Generated exceptional reach across multiple ad formats for a B2B SaaS platform on a minimal budget.</p>
                     <div class="work-metrics">
                         <span class="metric-tag">6M+ Impressions</span>
                         <span class="metric-tag">₹1.74 CPR</span>
@@ -431,8 +539,8 @@
                 <img src="Nortek-hero-image.jpeg" alt="Social Media Strategy">
                 <div class="work-info">
                     <div class="work-category">Social Media</div>
-                    <h4>3-Month Content Strategy</h4>
-                    <p>Developed comprehensive social media framework for premium lighting brand through competitive research.</p>
+                    <h4>3-Month Content Strategy — Nortek</h4>
+                    <p>Developed comprehensive social media framework for a premium lighting brand through competitive research.</p>
                     <div class="work-metrics">
                         <span class="metric-tag">30+ References</span>
                         <span class="metric-tag">15+ Ideas/Month</span>
@@ -446,24 +554,10 @@
                 <div class="work-info">
                     <div class="work-category">B2B Outreach</div>
                     <h4>Cold Outreach Campaign</h4>
-                    <p>Ran a targeted B2B cold outreach campaign to HR decision-makers, resulting in a 25% reply rate and a recurring paid contract.</p>
+                    <p>Targeted B2B cold outreach to HR decision-makers — 25% reply rate and a recurring paid contract secured.</p>
                     <div class="work-metrics">
                         <span class="metric-tag">100+ Contacts</span>
                         <span class="metric-tag">25% Reply Rate</span>
-                    </div>
-                    <div class="view-case">View Case Study →</div>
-                </div>
-            </a>
-
-            <a href="dr.daniel.html" class="work-card">
-                <img src="DMV-Hero-Image.jpeg" alt="B2B Strategy">
-                <div class="work-info">
-                    <div class="work-category">Strategy Development</div>
-                    <h4>B2B Revenue Model</h4>
-                    <p>Designed scalable corporate wellness strategy with three revenue streams for therapy practice.</p>
-                    <div class="work-metrics">
-                        <span class="metric-tag">3 Revenue Streams</span>
-                        <span class="metric-tag">B2B Focus</span>
                     </div>
                     <div class="view-case">View Case Study →</div>
                 </div>
