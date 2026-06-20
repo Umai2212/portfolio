@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Stack Digital Marketing - Elite IIT Coaching | Umair Abdullah</title>
+    <meta name="description" content="How I grew Elite IIT's leads to 454 in 30 days, cut CPL to ₹51.11, ranked Malleshwaram #2 on Google, and fixed broken tracking — as a solo digital marketing manager.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF5C35;
+            --dark-bg: #0A0A0A;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-secondary: #888;
+            --border: #2a2a2a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+        .logo { background: var(--primary-orange); color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 900; transition: all 0.3s; text-decoration: none; }
+        .logo:hover { transform: rotate(360deg); }
+        .back-link { text-decoration: none; color: var(--text-main); font-size: 0.9rem; transition: color 0.3s; }
+        .back-link:hover { color: var(--primary-orange); }
+        .case-hero { padding: 80px 10% 60px; border-bottom: 1px solid var(--border); }
+        .breadcrumb { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
+        .breadcrumb a { color: var(--primary-orange); text-decoration: none; }
+        .case-hero h1 { font-size: 3.2rem; margin-bottom: 20px; line-height: 1.2; }
+        .case-meta { display: flex; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+        .meta-item { display: flex; flex-direction: column; }
+        .meta-label { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .meta-value { font-size: 1rem; font-weight: 600; color: var(--primary-orange); }
+        .section { padding: 60px 10%; }
+        .section h2 { font-size: 2.2rem; margin-bottom: 30px; position: relative; display: inline-block; }
+        .section h2::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 50px; height: 3px; background: var(--primary-orange); }
+        .section h3 { font-size: 1.3rem; margin: 30px 0 15px; color: var(--text-main); }
+        .section p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 18px; font-size: 1rem; }
+        .section ul { list-style: none; padding: 0; margin: 15px 0; }
+        .section li { color: var(--text-secondary); padding-left: 22px; position: relative; margin-bottom: 10px; line-height: 1.7; }
+        .section li:before { content: "▸"; color: var(--primary-orange); position: absolute; left: 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin: 35px 0; }
+        .stat-box { background: var(--card-bg); padding: 25px; border-radius: 10px; border: 1px solid var(--border); text-align: center; transition: all 0.3s; }
+        .stat-box:hover { border-color: var(--primary-orange); transform: translateY(-4px); }
+        .stat-number { font-size: 2.2rem; font-weight: 900; color: var(--primary-orange); margin-bottom: 8px; }
+        .stat-label { color: var(--text-secondary); font-size: 0.82rem; line-height: 1.4; }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin: 30px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; background: var(--card-bg); border-radius: 8px; overflow: hidden; }
+        th, td { padding: 13px 15px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: rgba(255,92,53,0.1); color: var(--primary-orange); font-weight: 600; font-size: 0.85rem; }
+        td { color: var(--text-secondary); font-size: 0.9rem; }
+        tr:last-child td { border-bottom: none; }
+        .gallery-section { background: var(--card-bg); padding: 60px 10%; margin: 60px 0; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 35px; }
+        .gallery-item { aspect-ratio: 16/9; overflow: hidden; border-radius: 8px; cursor: pointer; border: 1px solid var(--border); transition: all 0.3s; }
+        .gallery-item:hover { border-color: var(--primary-orange); transform: scale(1.02); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .gallery-item:hover img { transform: scale(1.08); }
+        .learnings-box { background: var(--card-bg); padding: 35px; border-radius: 10px; border-left: 4px solid var(--primary-orange); margin: 30px 0; }
+        .learnings-box h3 { color: var(--primary-orange); margin-bottom: 18px; font-size: 1.2rem; }
+        .project-nav { display: flex; justify-content: space-between; padding: 50px 10%; border-top: 1px solid var(--border); gap: 40px; }
+        .nav-project { flex: 1; text-decoration: none; color: var(--text-main); transition: all 0.3s; }
+        .nav-project:hover { color: var(--primary-orange); }
+        .nav-label { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .nav-title { font-size: 1.2rem; font-weight: 600; }
+        .nav-next { text-align: right; }
+        footer { text-align: center; padding: 35px 10%; border-top: 1px solid var(--border); color: var(--text-secondary); }
+        .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 2000; align-items: center; justify-content: center; }
+        .lightbox.active { display: flex; }
+        .lightbox-content { position: relative; max-width: 90%; max-height: 90%; z-index: 2005; }
+        .lightbox-content img { max-width: 100%; max-height: 85vh; border-radius: 8px; border: 1px solid var(--border); }
+        .lightbox-close { position: absolute; top: 20px; right: 25px; font-size: 2.5rem; color: white; cursor: pointer; z-index: 2010; transition: color 0.3s; }
+        .lightbox-close:hover { color: var(--primary-orange); }
+        .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2.5rem; color: white; cursor: pointer; background: rgba(255,255,255,0.1); width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; z-index: 2015; }
+        .lightbox-nav:hover { background: var(--primary-orange); transform: translateY(-50%) scale(1.1); }
+        .lightbox-prev { left: 25px; }
+        .lightbox-next { right: 25px; }
+        @media (max-width: 768px) {
+            .case-hero h1 { font-size: 2.2rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .two-column { grid-template-columns: 1fr; gap: 25px; }
+            .case-meta { flex-direction: column; gap: 15px; }
+            .project-nav { flex-direction: column; gap: 25px; }
+            .nav-next { text-align: left; }
+            .section { padding: 40px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">UA</a>
+        <a href="index.html#work" class="back-link">← Back to Portfolio</a>
+    </nav>
+
+    <div class="case-hero">
+        <div class="breadcrumb"><a href="index.html">Home</a> / <a href="index.html#work">Work</a> / Elite IIT Coaching</div>
+        <h1>Full-Stack Digital Marketing for Elite IIT Coaching</h1>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 800px; margin-top: 15px;">Joined as sole digital marketing manager for a 4-branch coaching institute in Bangalore — audited a broken setup, launched campaigns across Meta Ads, Google Ads, SEO, and GBP, and delivered 454 leads at ₹51.11 CPL in the first 30 days.</p>
+        <div class="case-meta">
+            <div class="meta-item"><span class="meta-label">Client</span><span class="meta-value">Elite IIT Coaching, Bangalore</span></div>
+            <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Digital Marketing Manager</span></div>
+            <div class="meta-item"><span class="meta-label">Period</span><span class="meta-value">May 2026 – Present</span></div>
+            <div class="meta-item"><span class="meta-label">Channels</span><span class="meta-value">Meta Ads · Google Ads · SEO · GBP · WordPress</span></div>
+        </div>
+    </div>
+
+    <section class="section">
+        <h2>The Situation</h2>
+        <p>Elite IIT runs 4 branches across Bangalore — Yelahanka, Jayanagar, Koramangala, and Malleshwaram — offering JEE, NEET, and Class 3–12 tuition. They had been using freelancers and hired a full-time manager for the first time.</p>
+        <p>When I joined: Meta Ads running with no qualification filters and an inflated lead count, Google Ads conversion tracking broken since launch, GBP profiles at position 16+ city-wide, the highest-selling product (Class 3–12 tuition) with zero digital presence, and an internal narrative that performance had dropped — based on numbers that turned out to be misleading.</p>
+        <div class="two-column">
+            <div>
+                <h3>What I Walked Into</h3>
+                <ul>
+                    <li>18-month Meta Ads average CPL of ₹65.91 — inflated by unqualified leads</li>
+                    <li>Facebook page restricted — 97% delivery on Instagram only</li>
+                    <li>Google Ads showing 14 form submissions with zero emails received — tracking broken since launch</li>
+                    <li>NEET page at rank ~24 with 2,200 words and 2 organic visits/month</li>
+                    <li>GBP profiles unoptimised — Class 3–12 tuition missing across all 4 branches</li>
+                    <li>No leads tracking, no reporting infrastructure</li>
+                    <li>Website loading in 7 seconds — 1,160 impressions/day but only 14 clicks</li>
+                </ul>
+            </div>
+            <div>
+                <h3>What Was Expected</h3>
+                <ul>
+                    <li>Lower CPL than the previous freelancer's ₹53.37</li>
+                    <li>More qualified leads reaching the counseling team</li>
+                    <li>Local SEO visibility across all 4 branches</li>
+                    <li>Proper tracking and reporting with real numbers</li>
+                    <li>A digital marketing function that runs independently</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Month 1 Results</h2>
+        <p>May 11 – June 11, 2026. All numbers from Meta Ads Manager, Google Ads, and Google Search Console.</p>
+        <div class="stats-grid">
+            <div class="stat-box"><div class="stat-number">454</div><div class="stat-label">Total Leads — 30 Days</div></div>
+            <div class="stat-box"><div class="stat-number">₹51.11</div><div class="stat-label">Avg CPL — vs ₹53.37 Freelancer</div></div>
+            <div class="stat-box"><div class="stat-number">₹30.13</div><div class="stat-label">Best Campaign CPL — Lowest in 18-Month History</div></div>
+            <div class="stat-box"><div class="stat-number">3,15,995</div><div class="stat-label">People Reached on Meta</div></div>
+            <div class="stat-box"><div class="stat-number">#2</div><div class="stat-label">Malleshwaram — Google Search Rank</div></div>
+            <div class="stat-box"><div class="stat-number">15 hrs</div><div class="stat-label">Google Ads Tracking Fix — End to End</div></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Meta Ads</h2>
+        <p>The previous setup had a single NEET campaign with no segmentation and no qualification layer. The June 2025 numbers being compared internally included Navodaya, School Tuition, and job applicant leads all counted as "NEET leads." The comparison was inaccurate.</p>
+        <p>I restructured the account: separate campaigns per product, geo-targeted audiences per branch, and a WhatsApp qualification filter so only relevant leads reached the counseling team. CPL came in below the freelancer benchmark while quality improved.</p>
+
+        <h3>Campaign Performance — May 11 to June 10, 2026</h3>
+        <table>
+            <tr><th>Campaign</th><th>Leads</th><th>CPL (₹)</th><th>Notes</th></tr>
+            <tr><td>NEET Crash Course</td><td>104</td><td>—</td><td>Launched same day NEET re-exam announced</td></tr>
+            <tr><td>Navodaya &amp; Sainik</td><td>95</td><td>—</td><td>Low competition niche</td></tr>
+            <tr><td>Class 6–12 Tuition</td><td>82</td><td>—</td><td>First dedicated campaign for highest-selling product</td></tr>
+            <tr><td>General Leads Campaign</td><td>77</td><td>—</td><td>Inherited from April, restructured</td></tr>
+            <tr><td>NEET 2026</td><td>49</td><td>₹37.23</td><td>Well below account average</td></tr>
+            <tr><td>20-Day Crash Course</td><td>37</td><td>—</td><td>Time-sensitive window campaign</td></tr>
+            <tr><td>NEET 1-Year Dropper</td><td>35</td><td>—</td><td>Dedicated dropper segment</td></tr>
+            <tr><td>NEET 10th June</td><td>14</td><td>₹30.13</td><td>Lowest CPL in 18-month account history</td></tr>
+        </table>
+
+        <h3>Period Comparison</h3>
+        <table>
+            <tr><th>Period</th><th>Spend (₹)</th><th>Leads</th><th>Avg CPL (₹)</th></tr>
+            <tr><td>18-Month Historical Average</td><td>1,38,469</td><td>2,101</td><td>₹65.91</td></tr>
+            <tr><td>June 2025 — Previous Freelancer</td><td>13,983</td><td>262</td><td>₹53.37</td></tr>
+            <tr><td><strong>May–Jun 2026 — Month 1</strong></td><td><strong>23,202</strong></td><td><strong>454</strong></td><td><strong>₹51.11</strong></td></tr>
+        </table>
+
+        <h3>NEET Crash Course — Launched Under Pressure</h3>
+        <p>When the NEET re-exam was announced there was a narrow window before competitors reacted. I identified the opportunity, wrote ad copy in-house, got 4 creatives approved, and had the campaign live the same day. Landing page was live on eliteiit.com within the same week. Result: 104 leads — top-performing campaign of the month.</p>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Google Ads — Tracking Fix</h2>
+        <p>Rakesh flagged at 8:55 PM on June 10 that Google Ads was showing 14 form submissions but no emails had been received. I responded at 5:01 AM June 11 and had the root cause diagnosed and fixed by 12:04 PM — 15 hours total.</p>
+        <h3>Root Cause</h3>
+        <p>The lead form asset was collecting submissions but no conversion event was firing and email notifications had never been configured. The ads were spending with no optimisation signal going back to Google.</p>
+        <h3>Fix</h3>
+        <ul>
+            <li>Implemented Thank You page redirect as the conversion signal</li>
+            <li>Configured Google Tag Manager to fire the conversion event on thank you page load</li>
+            <li>Set test campaign at ₹200/day to verify end-to-end before scaling</li>
+            <li>Conversion tracking confirmed live — Google Ads now has a proper optimisation signal</li>
+        </ul>
+        <p>This had been broken since the account launched. Nobody had caught it until the flag came in.</p>
+    </section>
+
+    <section class="section">
+        <h2>SEO &amp; Google Business Profile</h2>
+        <h3>NEET Page — From Invisible to Page 1</h3>
+        <p>The NEET page was getting 2 organic visits a month with 2,200 words of thin content at rank ~24. I rebuilt it: grew to 4,800 words with hub-and-spoke structure, added FAQ schema markup, built internal links from related pages. The page was heading toward page 1 within the month.</p>
+        <h3>Malleshwaram — Ranked From Zero</h3>
+        <p>No location page existed and the GBP profile was at position 16+ city-wide. I built a dedicated location page, optimised the GBP profile, and the combination moved Malleshwaram to rank #2 on Google Search and #4 on Google Maps — within one month.</p>
+        <h3>Search Console Insight</h3>
+        <p>The site was appearing 1,160 times/day in search results but generating only 14 clicks. Traced to a 7-second page load time from plugin bloat — the SEO was working but the site was losing the traffic. Root cause documented and flagged for fix.</p>
+        <h3>Before vs After</h3>
+        <table>
+            <tr><th>Metric</th><th>Before</th><th>After (Jun 11)</th></tr>
+            <tr><td>NEET Page — Google Rank</td><td>~Position 24</td><td>Heading to Page 1</td></tr>
+            <tr><td>NEET Page — Word Count</td><td>2,200 words</td><td>4,800 words</td></tr>
+            <tr><td>Malleshwaram — Google Search</td><td>Not ranking</td><td>#2</td></tr>
+            <tr><td>Malleshwaram — Google Maps</td><td>Position 16+</td><td>#4</td></tr>
+            <tr><td>Daily Search Impressions</td><td>Not tracked</td><td>1,160/day</td></tr>
+            <tr><td>Schema Markup</td><td>None</td><td>Implemented</td></tr>
+            <tr><td>GBP Profiles Managed</td><td>0 (unoptimised)</td><td>4 branches active</td></tr>
+        </table>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Infrastructure Built</h2>
+        <p>None of the following were requested. Built proactively because they didn't exist.</p>
+        <ul>
+            <li><strong>Leads tracking sheet</strong> — full pipeline visibility shared with the whole team</li>
+            <li><strong>18-month historical campaign analysis</strong> — corrected the internal narrative that performance had dropped</li>
+            <li><strong>WhatsApp qualification filter</strong> — screens leads before the counseling team, improving conversion quality by an estimated 20–30%</li>
+            <li><strong>Keyword research sheet</strong> — delivered same day as requested</li>
+            <li><strong>Monthly execution calendar</strong> — shared with Rakesh for visibility</li>
+            <li><strong>Geo-targeting circles</strong> — Yelahanka and Koramangala built in Google Maps for precise ad targeting</li>
+            <li><strong>EOD reporting system</strong> — daily report sent every evening covering actions, movement, flags, and next day focus</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <div class="learnings-box">
+            <h3>Key Learnings</h3>
+            <ul>
+                <li><strong>Audit before you optimise</strong> — The internal numbers looked bad because the comparison was wrong. Building the 18-month analysis first meant every decision was based on accurate data</li>
+                <li><strong>Qualification matters more than volume</strong> — Removing unqualified leads from the pipeline is worth more than adding more leads. The counseling team's time is the real constraint</li>
+                <li><strong>Speed beats perfection under deadline</strong> — The crash course campaign had to move same day. Copy in-house, creatives approved, landing page live in 48 hours</li>
+                <li><strong>Tracking is the foundation</strong> — The Google Ads account had been spending with zero conversion signal for weeks. You cannot optimise what you cannot measure</li>
+                <li><strong>Local SEO compounds fast</strong> — One month of focused GBP + location page work moved Malleshwaram from invisible to #2. The other 3 branches follow the same playbook</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="gallery-section">
+        <h2 style="margin-bottom: 15px;">Project Assets</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0;">Campaign screenshots, ranking results, landing pages, and performance reports</p>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(0)"><img src="images/eliteiit-meta-results.jpg" alt="Meta Ads Campaign Results"></div>
+            <div class="gallery-item" onclick="openLightbox(1)"><img src="images/eliteiit-crash-course-page.jpg" alt="NEET Crash Course Landing Page"></div>
+            <div class="gallery-item" onclick="openLightbox(2)"><img src="images/eliteiit-malleshwaram-rank.jpg" alt="Malleshwaram Google Rank #2"></div>
+            <div class="gallery-item" onclick="openLightbox(3)"><img src="images/eliteiit-google-ads-fix.jpg" alt="Google Ads Tracking Fix"></div>
+            <div class="gallery-item" onclick="openLightbox(4)"><img src="images/eliteiit-search-console.jpg" alt="Search Console Impressions Data"></div>
+            <div class="gallery-item" onclick="openLightbox(5)"><img src="images/eliteiit-leads-tracker.jpg" alt="Leads Tracking Sheet"></div>
+        </div>
+    </div>
+
+    <div class="project-nav">
+        <a href="pickleball.html" class="nav-project nav-prev">
+            <div class="nav-label">← Previous Project</div>
+            <div class="nav-title">Influencer Marketing Campaign</div>
+        </a>
+        <a href="Saltworx.html" class="nav-project nav-next">
+            <div class="nav-label">Next Project →</div>
+            <div class="nav-title">Meta Ads Campaign</div>
+        </a>
+    </div>
+
+    <footer>
+        <p>© 2026 Umair Abdullah · <a href="index.html" style="color: var(--primary-orange); text-decoration: none;">Back to Portfolio</a></p>
+    </footer>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close" onclick="closeLightbox()">×</div>
+        <div class="lightbox-nav lightbox-prev" onclick="changeImage(-1); event.stopPropagation();">&#8249;</div>
+        <div class="lightbox-content" onclick="event.stopPropagation()"><img id="lightbox-img" src="" alt=""></div>
+        <div class="lightbox-nav lightbox-next" onclick="changeImage(1); event.stopPropagation();">&#8250;</div>
+    </div>
+
+    <script>
+        const images = ['images/eliteiit-meta-results.jpg','images/eliteiit-crash-course-page.jpg','images/eliteiit-malleshwaram-rank.jpg','images/eliteiit-google-ads-fix.jpg','images/eliteiit-search-console.jpg','images/eliteiit-leads-tracker.jpg'];
+        let currentIndex = 0;
+        function openLightbox(index) { currentIndex = index; document.getElementById('lightbox-img').src = images[currentIndex]; document.getElementById('lightbox').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow = 'auto'; }
+        function changeImage(dir) { currentIndex += dir; if (currentIndex < 0) currentIndex = images.length - 1; if (currentIndex >= images.length) currentIndex = 0; document.getElementById('lightbox-img').src = images[currentIndex]; }
+        document.addEventListener('keydown', function(e) { if (document.getElementById('lightbox').classList.contains('active')) { if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') changeImage(-1); if (e.key === 'ArrowRight') changeImage(1); } });
+    </script>
+</body>
+</html>

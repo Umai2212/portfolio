@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Marketing — Umair Abdullah</title>
+    <meta name="description" content="Meta Ads and Google Ads experience — real campaigns, real budgets, verified numbers. 454 leads at ₹51.11 CPL, 6M+ impressions on ₹1,098 budget.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FF5C35;
+            --dark-bg: #0A0A0A;
+            --card-bg: #161616;
+            --text-main: #E0E0E0;
+            --text-muted: #888;
+            --border: #2A2A2A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
+        /* Navbar */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+        .logo { background: var(--primary-orange); color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 900; transition: all 0.3s; text-decoration: none; }
+        .logo:hover { transform: rotate(360deg); }
+        .back-link { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; transition: color 0.3s; }
+        .back-link:hover { color: var(--primary-orange); }
+
+        /* Hero */
+        .pm-hero { padding: 80px 10% 60px; border-bottom: 1px solid var(--border); }
+        .pm-hero .tag { display: inline-block; background: rgba(255,92,53,0.12); color: var(--primary-orange); border: 1px solid rgba(255,92,53,0.3); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+        .pm-hero h1 { font-size: 3rem; line-height: 1.15; margin-bottom: 18px; }
+        .pm-hero p { color: var(--text-muted); font-size: 1.05rem; max-width: 700px; line-height: 1.8; margin-bottom: 35px; }
+
+        /* Top stats row */
+        .top-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 40px; }
+        .top-stat { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; transition: all 0.3s; }
+        .top-stat:hover { border-color: var(--primary-orange); transform: translateY(-3px); }
+        .top-stat .num { font-size: 2rem; font-weight: 900; color: var(--primary-orange); display: block; margin-bottom: 5px; }
+        .top-stat .lbl { font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; }
+
+        /* Sections */
+        .pm-section { padding: 65px 10%; }
+        .pm-section h2 { font-size: 1.8rem; margin-bottom: 8px; }
+        .pm-section .section-sub { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 35px; }
+        .pm-section h3 { font-size: 1.15rem; margin: 28px 0 12px; color: var(--text-main); }
+        .pm-section p { color: var(--text-muted); line-height: 1.8; margin-bottom: 15px; font-size: 0.97rem; }
+        .pm-section ul { list-style: none; padding: 0; margin: 12px 0; }
+        .pm-section li { color: var(--text-muted); padding-left: 20px; position: relative; margin-bottom: 9px; line-height: 1.7; font-size: 0.95rem; }
+        .pm-section li:before { content: "▸"; color: var(--primary-orange); position: absolute; left: 0; }
+
+        /* Campaign blocks */
+        .campaign-block { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin: 25px 0; transition: border-color 0.3s; }
+        .campaign-block:hover { border-color: var(--primary-orange); }
+        .campaign-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; }
+        .campaign-title h3 { margin: 0 0 5px; font-size: 1.2rem; }
+        .campaign-title .client { font-size: 0.82rem; color: var(--primary-orange); font-weight: 600; }
+        .campaign-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+        .badge { background: rgba(255,92,53,0.1); color: var(--primary-orange); border: 1px solid rgba(255,92,53,0.25); padding: 4px 12px; border-radius: 15px; font-size: 0.75rem; font-weight: 600; }
+        .badge.grey { background: #1e1e1e; color: var(--text-muted); border-color: var(--border); }
+        .campaign-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 20px 0; }
+        .c-stat { text-align: center; padding: 14px; background: var(--dark-bg); border-radius: 8px; border: 1px solid var(--border); }
+        .c-stat .n { font-size: 1.4rem; font-weight: 900; color: var(--primary-orange); display: block; }
+        .c-stat .l { font-size: 0.72rem; color: var(--text-muted); margin-top: 3px; }
+
+        /* Table */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--card-bg); border-radius: 8px; overflow: hidden; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: rgba(255,92,53,0.08); color: var(--primary-orange); font-weight: 600; font-size: 0.82rem; }
+        td { color: var(--text-muted); font-size: 0.88rem; }
+        tr:last-child td { border-bottom: none; }
+
+        /* Tools strip */
+        .tools-strip { background: var(--card-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 40px 10%; }
+        .tools-strip h3 { font-size: 1rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; font-weight: 600; }
+        .tools-grid { display: flex; gap: 10px; flex-wrap: wrap; }
+        .tool-tag { background: var(--dark-bg); border: 1px solid var(--border); color: var(--text-muted); padding: 7px 16px; border-radius: 20px; font-size: 0.8rem; transition: all 0.3s; }
+        .tool-tag:hover { border-color: var(--primary-orange); color: var(--primary-orange); }
+
+        /* Divider */
+        .section-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+        /* Light note */
+        .light-note { background: rgba(255,92,53,0.06); border: 1px solid rgba(255,92,53,0.15); border-radius: 8px; padding: 15px 20px; margin: 20px 0; color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+        .light-note span { color: var(--primary-orange); font-weight: 600; }
+
+        footer { text-align: center; padding: 35px 10%; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.88rem; }
+
+        @media (max-width: 768px) {
+            .pm-hero h1 { font-size: 2.1rem; }
+            .pm-section { padding: 45px 5%; }
+            .campaign-header { flex-direction: column; }
+            .top-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">UA</a>
+        <a href="index.html#work" class="back-link">← Back to Portfolio</a>
+    </nav>
+
+    <!-- Hero -->
+    <div class="pm-hero">
+        <div class="tag">Performance Marketing</div>
+        <h1>Paid Advertising — <span style="color: var(--primary-orange);">Meta &amp; Google Ads</span></h1>
+        <p>Real campaigns. Real budgets. Numbers I can walk you through. This page covers my paid advertising experience across Meta Ads and Google Ads — from a ₹1,098 awareness campaign that generated 6M+ impressions, to managing ₹23,000/month in lead gen spend for a 4-branch coaching institute.</p>
+
+        <div class="top-stats">
+            <div class="top-stat">
+                <span class="num">454</span>
+                <span class="lbl">Leads in 30 Days</span>
+            </div>
+            <div class="top-stat">
+                <span class="num">₹51.11</span>
+                <span class="lbl">Avg CPL — Elite IIT</span>
+            </div>
+            <div class="top-stat">
+                <span class="num">₹30.13</span>
+                <span class="lbl">Best Campaign CPL</span>
+            </div>
+            <div class="top-stat">
+                <span class="num">6M+</span>
+                <span class="lbl">Impressions — Saltworx</span>
+            </div>
+            <div class="top-stat">
+                <span class="num">₹1.74</span>
+                <span class="lbl">Best CPR — Saltworx</span>
+            </div>
+            <div class="top-stat">
+                <span class="num">₹23,202</span>
+                <span class="lbl">Ad Spend Managed</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Campaign 1: Elite IIT -->
+    <section class="pm-section">
+        <h2>Elite IIT Coaching — Meta Ads &amp; Google Ads</h2>
+        <p class="section-sub">May 2026 – Present · Digital Marketing Manager · Bangalore</p>
+
+        <div class="campaign-block">
+            <div class="campaign-header">
+                <div class="campaign-title">
+                    <h3>Meta Ads — Lead Generation</h3>
+                    <div class="client">Elite IIT · 4-Branch Coaching Institute · Bangalore</div>
+                </div>
+                <div class="campaign-badges">
+                    <span class="badge">Lead Gen</span>
+                    <span class="badge">WhatsApp CTA</span>
+                    <span class="badge grey">₹23,202 Spend</span>
+                </div>
+            </div>
+            <div class="campaign-stats">
+                <div class="c-stat"><span class="n">454</span><span class="l">Total Leads</span></div>
+                <div class="c-stat"><span class="n">₹51.11</span><span class="l">Avg CPL</span></div>
+                <div class="c-stat"><span class="n">₹30.13</span><span class="l">Best CPL</span></div>
+                <div class="c-stat"><span class="n">3,15,995</span><span class="l">Reach</span></div>
+                <div class="c-stat"><span class="n">4,95,592</span><span class="l">Impressions</span></div>
+            </div>
+            <p>Audited 18 months of campaign history on day one. Found that the previous freelancer's numbers were inflated — Navodaya, School Tuition, and job applicant leads all counted in the same bucket as NEET leads. The real performance picture was different from what was being reported internally.</p>
+            <p>Restructured the account with separate campaigns per product, geo-targeted audiences per branch, and a WhatsApp qualification filter to screen leads before they reached the counseling team. Lead quality improved — the counseling team's conversion rate on leads increased by an estimated 20–30%.</p>
+            <h3>What I Did</h3>
+            <ul>
+                <li>Restructured from 1 generic campaign to segmented campaigns per product (NEET, Class 6–12, Navodaya, Dropper)</li>
+                <li>Set up geo-targeting per branch — Yelahanka, Koramangala, Jayanagar, Malleshwaram</li>
+                <li>Added WhatsApp qualification filter — 2 screening questions before lead reaches counselor</li>
+                <li>Changed age targeting from 28–45 to 18–45 to capture students directly alongside parents</li>
+                <li>Built audience segments: website visitors, interest-based (NEET, JEE, coaching), lookalikes</li>
+                <li>Launched NEET Crash Course campaign same day the re-exam was announced — 104 leads generated</li>
+            </ul>
+
+            <h3>Campaign Breakdown</h3>
+            <table>
+                <tr><th>Campaign</th><th>Leads</th><th>CPL (₹)</th></tr>
+                <tr><td>NEET Crash Course</td><td>104</td><td>—</td></tr>
+                <tr><td>Navodaya &amp; Sainik</td><td>95</td><td>—</td></tr>
+                <tr><td>Class 6–12 Tuition</td><td>82</td><td>—</td></tr>
+                <tr><td>General Leads</td><td>77</td><td>—</td></tr>
+                <tr><td>NEET 2026</td><td>49</td><td>₹37.23</td></tr>
+                <tr><td>20-Day Crash Course</td><td>37</td><td>—</td></tr>
+                <tr><td>NEET 1-Year Dropper</td><td>35</td><td>—</td></tr>
+                <tr><td>NEET 10th June</td><td>14</td><td>₹30.13</td></tr>
+            </table>
+
+            <h3>Benchmark Comparison</h3>
+            <table>
+                <tr><th>Period</th><th>Leads</th><th>Spend (₹)</th><th>CPL (₹)</th></tr>
+                <tr><td>18-Month Account Average</td><td>2,101</td><td>1,38,469</td><td>₹65.91</td></tr>
+                <tr><td>June 2025 — Freelancer</td><td>262</td><td>13,983</td><td>₹53.37</td></tr>
+                <tr><td><strong>Month 1 — Umair</strong></td><td><strong>454</strong></td><td><strong>23,202</strong></td><td><strong>₹51.11</strong></td></tr>
+            </table>
+        </div>
+
+        <div class="campaign-block">
+            <div class="campaign-header">
+                <div class="campaign-title">
+                    <h3>Google Ads — Tracking Setup &amp; Fix</h3>
+                    <div class="client">Elite IIT · Google Search</div>
+                </div>
+                <div class="campaign-badges">
+                    <span class="badge">Search Ads</span>
+                    <span class="badge">GTM</span>
+                    <span class="badge grey">Conversion Tracking</span>
+                </div>
+            </div>
+            <p>Google Ads was showing 14 form submissions but no email notifications were being received. The account had been running with zero conversion signal since launch — meaning the algorithm had no data to optimise against.</p>
+            <ul>
+                <li>Diagnosed root cause: lead form asset collecting submissions but conversion event never set up</li>
+                <li>Implemented Thank You page redirect as the conversion trigger</li>
+                <li>Configured Google Tag Manager — trigger fires on thank you page load, sends conversion to Google Ads</li>
+                <li>Set test campaign at ₹200/day to verify end-to-end tracking before scaling</li>
+                <li>Total turnaround: <strong style="color: var(--primary-orange);">15 hours</strong> from flag to fix confirmed</li>
+            </ul>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Campaign 2: Saltworx -->
+    <section class="pm-section">
+        <h2>Saltworx — Meta Ads (Awareness + Lead Gen)</h2>
+        <p class="section-sub">Jun – Sep 2025 · Design Brewery Internship · B2B SaaS</p>
+
+        <div class="campaign-block">
+            <div class="campaign-header">
+                <div class="campaign-title">
+                    <h3>Meta Ads — Awareness Campaign</h3>
+                    <div class="client">Saltworx · Inventory Management SaaS · SME Market</div>
+                </div>
+                <div class="campaign-badges">
+                    <span class="badge">Awareness</span>
+                    <span class="badge">A/B Testing</span>
+                    <span class="badge grey">₹1,098 Budget</span>
+                </div>
+            </div>
+            <div class="campaign-stats">
+                <div class="c-stat"><span class="n">6M+</span><span class="l">Impressions</span></div>
+                <div class="c-stat"><span class="n">₹1.74</span><span class="l">Best CPR</span></div>
+                <div class="c-stat"><span class="n">23</span><span class="l">Qualified Leads</span></div>
+                <div class="c-stat"><span class="n">₹83</span><span class="l">Best Lead CPL</span></div>
+            </div>
+            <p>Managed Meta Ads campaigns for Saltworx — a B2B SaaS platform targeting SMEs — across Facebook and Instagram. Tested multiple ad formats (static, carousel, video) on a ₹1,098 total budget and identified the best-performing format with ₹1.74 CPR.</p>
+            <p>Ran a separate lead generation campaign alongside awareness — generated 23 qualified leads with a best CPL of ₹83 on the top-performing format.</p>
+            <h3>What I Did</h3>
+            <ul>
+                <li>Set up and managed awareness + lead gen campaigns simultaneously</li>
+                <li>Tested static, carousel, and video ad formats against each other</li>
+                <li>Identified top-performing format — ₹1.74 CPR, lowest in the campaign set</li>
+                <li>Managed weekly content alongside ads — Instagram, Facebook, LinkedIn</li>
+                <li>Prepared and presented weekly performance reports to client every Wednesday</li>
+            </ul>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Campaign 3: Fintree (light) -->
+    <section class="pm-section">
+        <h2>Fintree Coaching — Ad Strategy</h2>
+        <p class="section-sub">Jun – Sep 2025 · Design Brewery Internship · Education</p>
+
+        <div class="campaign-block">
+            <div class="campaign-header">
+                <div class="campaign-title">
+                    <h3>Meta Ads Strategy — Competitor Research</h3>
+                    <div class="client">Fintree · CA Coaching Institute</div>
+                </div>
+                <div class="campaign-badges">
+                    <span class="badge grey">Strategy</span>
+                    <span class="badge grey">Competitor Analysis</span>
+                </div>
+            </div>
+            <div class="light-note"><span>Note:</span> This was early-stage strategy work, not execution. No campaign numbers — included here for transparency as it was part of my first paid ads exposure.</div>
+            <p>Developed Meta Ads strategy for Fintree through competitor analysis — reviewed active ad creatives, audiences, and messaging across competing CA coaching institutes. Produced ad copy recommendations and creative direction for the client.</p>
+            <ul>
+                <li>Audited competitor Meta Ads using Ad Library</li>
+                <li>Identified content gaps and positioning opportunities</li>
+                <li>Recommended ad angles and copy direction for launch</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Tools -->
+    <div class="tools-strip">
+        <h3>Tools &amp; Platforms</h3>
+        <div class="tools-grid">
+            <span class="tool-tag">Meta Ads Manager</span>
+            <span class="tool-tag">Google Ads</span>
+            <span class="tool-tag">Google Tag Manager</span>
+            <span class="tool-tag">Meta Pixel</span>
+            <span class="tool-tag">Meta Ad Library</span>
+            <span class="tool-tag">WhatsApp Lead Funnels</span>
+            <span class="tool-tag">Conversion Tracking</span>
+            <span class="tool-tag">Audience Segmentation</span>
+            <span class="tool-tag">A/B Testing</span>
+            <span class="tool-tag">Google Search Console</span>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Umair Abdullah &nbsp;·&nbsp; <a href="index.html" style="color: var(--primary-orange); text-decoration: none;">Back to Portfolio</a> &nbsp;·&nbsp; umairabdullah1821@gmail.com</p>
+    </footer>
+
+</body>
+</html>
