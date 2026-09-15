@@ -100,7 +100,7 @@
             font-size: 1.1rem;
             color: var(--text-muted);
             margin: 20px 0 30px 0;
-            max-width: 500px;
+            max-width: 560px;
             line-height: 1.8;
         }
 
@@ -129,6 +129,7 @@
             border-top: 1px solid var(--border);
             padding-top: 20px;
             color: var(--text-muted);
+            flex-wrap: wrap;
         }
 
         /* About */
@@ -172,6 +173,7 @@
         .stats { display: flex; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
         .stat-item h3 { font-size: 2rem; color: #FFF; }
         .stat-item p { font-size: 0.85rem; color: var(--text-muted); }
+        .stat-item .sub { font-size: 0.72rem; color: #555; margin-top: 2px; }
 
         /* Experience */
         .experience h2 { font-size: 2.5rem; margin-bottom: 40px; color: #FFF; }
@@ -284,6 +286,7 @@
             display: block;
         }
 
+        .work-card.featured { grid-column: span 2; }
         .work-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.5); border-color: var(--primary-orange); }
         .work-card img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.3s; }
         .work-card:hover img { transform: scale(1.05); }
@@ -293,38 +296,41 @@
         .work-info p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
         .work-metrics { display: flex; gap: 10px; flex-wrap: wrap; }
         .metric-tag { background: #222; padding: 5px 12px; border-radius: 15px; font-size: 0.75rem; color: #FFF; border: 1px solid var(--border); }
+        .metric-tag.muted { color: var(--text-muted); border-color: var(--border); background: transparent; }
         .view-case { color: var(--primary-orange); font-size: 0.85rem; font-weight: 600; margin-top: 15px; display: inline-block; }
 
-        /* Contact */
+        /* Contact (no form — direct info only) */
         .contact h2 { font-size: 2.5rem; color: #FFF; }
         .contact .subtitle { color: var(--text-muted); margin-bottom: 40px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-        input, textarea {
-            width: 100%; padding: 15px; margin-bottom: 20px;
-            background: transparent; border: none;
-            border-bottom: 1px solid var(--border);
-            outline: none; color: white; transition: 0.3s;
+        .contact-direct {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
         }
-
-        input:focus, textarea:focus { border-bottom-color: var(--primary-orange); }
-
-        .btn-submit {
-            background: var(--primary-orange);
-            border: none; color: white;
-            padding: 12px 40px; border-radius: 25px;
-            cursor: pointer; transition: 0.3s; font-weight: 600;
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 28px;
+            flex: 1;
+            min-width: 220px;
+            transition: all 0.3s;
         }
+        .contact-card:hover { border-color: var(--primary-orange); transform: translateY(-3px); }
+        .contact-card .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 8px; }
+        .contact-card a, .contact-card span.value { color: #FFF; font-size: 1.05rem; font-weight: 600; text-decoration: none; }
+        .contact-card a:hover { color: var(--primary-orange); }
 
-        footer { text-align: center; padding: 40px 10%; border-top: 1px solid var(--border); color: var(--text-muted); }
+        footer.site-footer { text-align: center; padding: 40px 10%; border-top: 1px solid var(--border); color: var(--text-muted); }
 
         @media (max-width: 768px) {
             .hero { flex-direction: column-reverse; }
             .hero-content h1 { font-size: 3rem; }
             .about-grid, .work-grid { grid-template-columns: 1fr; }
+            .work-card.featured { grid-column: span 1; }
             .timeline-item { flex-direction: column; }
             .time-period { margin-bottom: 15px; width: 100%; }
-            .form-row { grid-template-columns: 1fr; }
             .ads-numbers { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
@@ -339,7 +345,7 @@
     <header class="hero">
         <div class="hero-content">
             <h1>I'm Umair 👋<br><span class="highlight">Digital Marketer</span></h1>
-            <p>Digital Marketing Manager at Elite IIT, Bangalore. I run paid campaigns on Meta and Google, build SEO strategies, and manage local search — with real numbers to back it up.</p>
+            <p>Digital Marketing Manager at Elite IIT, Bangalore — sole marketer running Meta Ads, Google Ads, SEO, and Google Business Profile across 4 branches, solo, since May 2026. In 4 months: 625% organic lead growth (12 → 87 leads/month), a Google Ads tracking bug fixed in 15 hours, and one branch ranked #2 on Google from a standing start. No agency, no team — just the numbers below.</p>
 
             <div class="cta-buttons">
                 <a href="#work" class="btn btn-primary">View My Work</a>
@@ -360,18 +366,18 @@
             <div class="abstract-shape">
                 <div class="circle-orange"></div>
                 <div class="circle-black">
-                    <img src="umair 2.jpeg" alt="Umair Abdullah Portrait">
+                    <img src="umair-portrait.jpeg" alt="Umair Abdullah Portrait">
                 </div>
             </div>
             <div class="about-text">
                 <h2>About Me</h2>
-                <p>I'm a digital marketer who works with real budgets and real accountability. Currently managing all digital marketing for Elite IIT — a 4-branch coaching institute in Bangalore — across Meta Ads, Google Ads, SEO, GBP, and landing pages. Sole person responsible, no agency support, over 4+ months and counting.</p>
-                <p>Before this, I ran Meta Ads campaigns at Design Brewery that generated 6M+ impressions on ₹1,098 total spend, and built SEO strategies and B2B outreach campaigns at Zilwaris Digital. I'm most useful when there's a real problem to solve and a number to beat.</p>
+                <p>I'm the only digital marketer at a 4-branch coaching institute — no agency support, no backup, full accountability for every rupee spent. In under 4 months I've audited 18 months of broken campaign data, caught a tracking bug that had gone undetected since launch, and rebuilt local SEO from scratch across all 4 branches. I'm most useful when something's broken and there's a real number to fix it against.</p>
+                <p>Before this, I ran Meta Ads campaigns at Design Brewery that generated 6M+ impressions on ₹1,098 total spend, and built SEO strategies and B2B outreach campaigns at Zilwaris Digital.</p>
                 <div class="stats">
-                    <div class="stat-item"><h3>625%</h3><p>Organic Lead Growth — Elite IIT</p></div>
+                    <div class="stat-item"><h3>625%</h3><p>Organic Lead Growth — Elite IIT</p><p class="sub">12 → 87 leads/month, Jun–Aug</p></div>
                     <div class="stat-item"><h3>4 Months</h3><p>Solo, Across 4 Branches</p></div>
-                    <div class="stat-item"><h3>6M+</h3><p>Impressions — Saltworx</p></div>
-                    <div class="stat-item"><h3>#2</h3><p>Google Rank — Malleshwaram</p></div>
+                    <div class="stat-item"><h3>6M+</h3><p>Impressions — Saltworx</p><p class="sub">on a ₹1,098 budget</p></div>
+                    <div class="stat-item"><h3>#2</h3><p>Google Rank — Malleshwaram</p><p class="sub">up from #8</p></div>
                 </div>
             </div>
         </div>
@@ -506,8 +512,8 @@
 
         <div class="work-grid">
 
-            <a href="eliteiit.html" class="work-card">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Elite IIT Digital Marketing">
+            <a href="eliteiit.html" class="work-card featured">
+                <img src="images/eliteiit-meta-results.jpg" alt="Elite IIT Digital Marketing">
                 <div class="work-info">
                     <div class="work-category">Full-Stack Digital Marketing</div>
                     <h4>Elite IIT Coaching — 4-Month Case Study</h4>
@@ -521,8 +527,8 @@
                 </div>
             </a>
 
-            <a href="ai-search-impact.html" class="work-card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="AI Search Impact Analysis">
+            <a href="ai-search-impact.html" class="work-card featured">
+                <img src="images/eliteiit-search-console.jpg" alt="AI Search Impact Analysis">
                 <div class="work-info">
                     <div class="work-category">SEO Diagnostics</div>
                     <h4>AI Search Impact Analysis</h4>
@@ -581,20 +587,28 @@
         </div>
     </section>
 
-    <footer id="contact" class="contact section-padding">
+    <section id="contact" class="contact section-padding">
         <div class="section-label">04</div>
-        <h2>Let's Work Together</h2>
-        <p class="subtitle">Open to full-time opportunities, freelance projects, and collaborations</p>
-        <form id="contact-form">
-            <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <input type="text" placeholder="Name *" required>
-                <input type="tel" placeholder="Phone *" required>
+        <h2>Let's Talk</h2>
+        <p class="subtitle">Actively looking for full-time Performance Marketing roles — open to a conversation about how I can help your team.</p>
+        <div class="contact-direct">
+            <div class="contact-card">
+                <div class="label">Email</div>
+                <a href="mailto:umairabdullah1821@gmail.com">umairabdullah1821@gmail.com</a>
             </div>
-            <input type="email" placeholder="Email *" required>
-            <textarea placeholder="Message *" required></textarea>
-            <button type="submit" class="btn-submit">Send Message</button>
-        </form>
-        <p style="margin-top: 60px; color: var(--text-muted);">© 2026 Umair Abdullah · Designed & built with passion</p>
+            <div class="contact-card">
+                <div class="label">Phone</div>
+                <a href="tel:+917899832547">+91 7899 832 547</a>
+            </div>
+            <div class="contact-card">
+                <div class="label">Location</div>
+                <span class="value">Tumkur / Bangalore, India</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>© 2026 Umair Abdullah</p>
     </footer>
 
 </body>
