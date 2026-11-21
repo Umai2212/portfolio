@@ -3,93 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Performance Marketing — Umair Abdullah</title>
-    <meta name="description" content="Meta Ads and Google Ads experience — real campaigns, real budgets. 65 demo or visit bookings in a month, 1,469 Meta enquiries at ₹57, ₹1.3L+ ad spend managed, and 6.4 lakh+ impressions on ₹1,098.">
+    <title>Cited by Google's AI Overviews - Elite IIT SEO | Umair Abdullah</title>
+    <meta name="description" content="Elite IIT pages shown in Google's AI Overviews 10,986 times in August, with 37.9% more search impressions and every branded search verified at #1.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-orange: #FF5C35;
             --dark-bg: #0A0A0A;
-            --card-bg: #161616;
-            --text-main: #E0E0E0;
-            --text-muted: #888;
-            --border: #2A2A2A;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-secondary: #888;
+            --border: #2a2a2a;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
-
-        /* Navbar */
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
         .logo { background: var(--primary-orange); color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 900; transition: all 0.3s; text-decoration: none; }
         .logo:hover { transform: rotate(360deg); }
-        .back-link { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; transition: color 0.3s; }
+        .back-link { text-decoration: none; color: var(--text-main); font-size: 0.9rem; transition: color 0.3s; }
         .back-link:hover { color: var(--primary-orange); }
-
-        /* Hero */
-        .pm-hero { padding: 80px 10% 60px; border-bottom: 1px solid var(--border); }
-        .pm-hero .tag { display: inline-block; background: rgba(255,92,53,0.12); color: var(--primary-orange); border: 1px solid rgba(255,92,53,0.3); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
-        .pm-hero h1 { font-size: 3rem; line-height: 1.15; margin-bottom: 18px; }
-        .pm-hero p { color: var(--text-muted); font-size: 1.05rem; max-width: 700px; line-height: 1.8; margin-bottom: 35px; }
-
-        /* Top stats row */
-        .top-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 40px; }
-        .top-stat { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; transition: all 0.3s; }
-        .top-stat:hover { border-color: var(--primary-orange); transform: translateY(-3px); }
-        .top-stat .num { font-size: 2rem; font-weight: 900; color: var(--primary-orange); display: block; margin-bottom: 5px; }
-        .top-stat .lbl { font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; }
-
-        /* Sections */
-        .pm-section { padding: 65px 10%; }
-        .pm-section h2 { font-size: 1.8rem; margin-bottom: 8px; }
-        .pm-section .section-sub { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 35px; }
-        .pm-section h3 { font-size: 1.15rem; margin: 28px 0 12px; color: var(--text-main); }
-        .pm-section p { color: var(--text-muted); line-height: 1.8; margin-bottom: 15px; font-size: 0.97rem; }
-        .pm-section ul { list-style: none; padding: 0; margin: 12px 0; }
-        .pm-section li { color: var(--text-muted); padding-left: 20px; position: relative; margin-bottom: 9px; line-height: 1.7; font-size: 0.95rem; }
-        .pm-section li:before { content: "▸"; color: var(--primary-orange); position: absolute; left: 0; }
-
-        /* Campaign blocks */
-        .campaign-block { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin: 25px 0; transition: border-color 0.3s; }
-        .campaign-block:hover { border-color: var(--primary-orange); }
-        .campaign-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; }
-        .campaign-title h3 { margin: 0 0 5px; font-size: 1.2rem; }
-        .campaign-title .client { font-size: 0.82rem; color: var(--primary-orange); font-weight: 600; }
-        .campaign-badges { display: flex; gap: 8px; flex-wrap: wrap; }
-        .badge { background: rgba(255,92,53,0.1); color: var(--primary-orange); border: 1px solid rgba(255,92,53,0.25); padding: 4px 12px; border-radius: 15px; font-size: 0.75rem; font-weight: 600; }
-        .badge.grey { background: #1e1e1e; color: var(--text-muted); border-color: var(--border); }
-        .campaign-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 20px 0; }
-        .c-stat { text-align: center; padding: 14px; background: var(--dark-bg); border-radius: 8px; border: 1px solid var(--border); }
-        .c-stat .n { font-size: 1.4rem; font-weight: 900; color: var(--primary-orange); display: block; }
-        .c-stat .l { font-size: 0.72rem; color: var(--text-muted); margin-top: 3px; }
-
-        /* Table */
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--card-bg); border-radius: 8px; overflow: hidden; }
-        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--border); }
-        th { background: rgba(255,92,53,0.08); color: var(--primary-orange); font-weight: 600; font-size: 0.82rem; }
-        td { color: var(--text-muted); font-size: 0.88rem; }
+        .case-hero { padding: 80px 10% 60px; border-bottom: 1px solid var(--border); }
+        .breadcrumb { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
+        .breadcrumb a { color: var(--primary-orange); text-decoration: none; }
+        .case-hero h1 { font-size: 2.8rem; margin-bottom: 20px; line-height: 1.25; }
+        .case-hero .subhead { color: var(--text-secondary); font-size: 1.1rem; max-width: 800px; margin-top: 15px; line-height: 1.8; }
+        .case-meta { display: flex; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+        .meta-item { display: flex; flex-direction: column; }
+        .meta-label { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .meta-value { font-size: 1rem; font-weight: 600; color: var(--primary-orange); }
+        .section { padding: 60px 10%; }
+        .section h2 { font-size: 2rem; margin-bottom: 15px; position: relative; display: inline-block; }
+        .section h2::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 50px; height: 3px; background: var(--primary-orange); }
+        .section .section-intro { color: var(--text-secondary); font-size: 1rem; margin-bottom: 30px; max-width: 750px; }
+        .section h3 { font-size: 1.25rem; margin: 28px 0 14px; color: var(--text-main); }
+        .section p { color: var(--text-secondary); line-height: 1.85; margin-bottom: 18px; font-size: 1rem; }
+        .section ol, .section ul { padding-left: 22px; margin: 15px 0; }
+        .section ol li, .section ul li { color: var(--text-secondary); margin-bottom: 14px; line-height: 1.8; }
+        .section ul { list-style: none; padding-left: 0; }
+        .section ul li { padding-left: 22px; position: relative; }
+        .section ul li:before { content: "▸"; color: var(--primary-orange); position: absolute; left: 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin: 35px 0; }
+        .stat-box { background: var(--card-bg); padding: 25px; border-radius: 10px; border: 1px solid var(--border); text-align: center; transition: all 0.3s; }
+        .stat-box:hover { border-color: var(--primary-orange); transform: translateY(-4px); }
+        .stat-number { font-size: 2.1rem; font-weight: 900; color: var(--primary-orange); margin-bottom: 8px; }
+        .stat-label { color: var(--text-secondary); font-size: 0.82rem; line-height: 1.4; }
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; background: var(--card-bg); border-radius: 8px; overflow: hidden; }
+        th, td { padding: 13px 15px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: rgba(255,92,53,0.1); color: var(--primary-orange); font-weight: 600; font-size: 0.85rem; }
+        td { color: var(--text-secondary); font-size: 0.9rem; }
         tr:last-child td { border-bottom: none; }
-
-        /* Tools strip */
-        .tools-strip { background: var(--card-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 40px 10%; }
-        .tools-strip h3 { font-size: 1rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; font-weight: 600; }
-        .tools-grid { display: flex; gap: 10px; flex-wrap: wrap; }
-        .tool-tag { background: var(--dark-bg); border: 1px solid var(--border); color: var(--text-muted); padding: 7px 16px; border-radius: 20px; font-size: 0.8rem; transition: all 0.3s; }
-        .tool-tag:hover { border-color: var(--primary-orange); color: var(--primary-orange); }
-
-        /* Divider */
-        .section-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
-
-        /* Light note */
-        .light-note { background: rgba(255,92,53,0.06); border: 1px solid rgba(255,92,53,0.15); border-radius: 8px; padding: 15px 20px; margin: 20px 0; color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
-        .light-note span { color: var(--primary-orange); font-weight: 600; }
-
-        footer { text-align: center; padding: 35px 10%; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.88rem; }
-
+        .plain-english-box { background: rgba(255,92,53,0.06); border: 1px solid rgba(255,92,53,0.2); border-radius: 10px; padding: 28px 30px; margin: 25px 0; }
+        .plain-english-box .tag { display: inline-block; color: var(--primary-orange); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .plain-english-box p { margin-bottom: 0; color: var(--text-main); }
+        .investigation-step { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 25px 28px; margin: 18px 0; display: flex; gap: 20px; }
+        .investigation-step .step-num { flex-shrink: 0; width: 36px; height: 36px; background: var(--primary-orange); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.95rem; }
+        .investigation-step p { margin-bottom: 0; color: var(--text-secondary); }
+        .verdict-box { background: var(--card-bg); border-left: 4px solid var(--primary-orange); border-radius: 8px; padding: 20px 25px; margin: 20px 0; }
+        .verdict-box strong { color: var(--primary-orange); }
+        footer { text-align: center; padding: 35px 10%; border-top: 1px solid var(--border); color: var(--text-secondary); }
+        .project-nav { display: flex; justify-content: space-between; padding: 50px 10%; border-top: 1px solid var(--border); gap: 40px; }
+        .nav-project { flex: 1; text-decoration: none; color: var(--text-main); transition: all 0.3s; }
+        .nav-project:hover { color: var(--primary-orange); }
+        .nav-label { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .nav-title { font-size: 1.2rem; font-weight: 600; }
+        .nav-next { text-align: right; }
         @media (max-width: 768px) {
-            .pm-hero h1 { font-size: 2.1rem; }
-            .pm-section { padding: 45px 5%; }
-            .campaign-header { flex-direction: column; }
-            .top-stats { grid-template-columns: repeat(2, 1fr); }
+            .case-hero h1 { font-size: 2rem; }
+            .section { padding: 40px 5%; }
+            .investigation-step { flex-direction: column; }
+            .project-nav { flex-direction: column; gap: 25px; }
+            .nav-next { text-align: left; }
         }
     </style>
 </head>
@@ -100,194 +83,99 @@
         <a href="index.html#work" class="back-link">← Back to Portfolio</a>
     </nav>
 
-    <!-- Hero -->
-    <div class="pm-hero">
-        <div class="tag">Performance Marketing</div>
-        <h1>Paid Advertising — <span style="color: var(--primary-orange);">Meta &amp; Google Ads</span></h1>
-        <p>Real campaigns. Real budgets. Numbers I can walk you through. This page covers my paid advertising experience across Meta Ads and Google Ads — from a ₹1,098 awareness campaign that reached 6.4 lakh+ impressions, to running lead-gen spend since May 2026 for a 4-branch coaching institute.</p>
-
-        <div class="top-stats">
-            <div class="top-stat">
-                <span class="num">₹1.3L+</span>
-                <span class="lbl">Ad Spend Managed — Elite IIT</span>
-            </div>
-            <div class="top-stat">
-                <span class="num">1,469</span>
-                <span class="lbl">Meta Ads Enquiries at ₹57</span>
-            </div>
-            <div class="top-stat">
-                <span class="num">65</span>
-                <span class="lbl">Demo or Visit Bookings (Oct, ₹317 Blended)</span>
-            </div>
-            <div class="top-stat">
-                <span class="num">100+</span>
-                <span class="lbl">Undercounted Leads Recovered (New Meta Dataset)</span>
-            </div>
-            <div class="top-stat">
-                <span class="num">6.4L+</span>
-                <span class="lbl">Impressions — Saltworx</span>
-            </div>
-            <div class="top-stat">
-                <span class="num">₹22.63</span>
-                <span class="lbl">Best Cost per Lead — Saltworx</span>
-            </div>
+    <div class="case-hero">
+        <div class="breadcrumb"><a href="index.html">Home</a> / <a href="index.html#work">Work</a> / <a href="eliteiit.html">Elite IIT Coaching</a> / Cited by Google's AI Overviews</div>
+        <h1>Cited by Google's AI Overviews: Elite IIT's Search Visibility Growth</h1>
+        <p class="subhead">Elite IIT's pages showed up inside Google's AI-written answers 10,986 times in August, while overall search impressions grew 37.9% from April.</p>
+        <div class="case-meta">
+            <div class="meta-item"><span class="meta-label">Client</span><span class="meta-value">Elite IIT Coaching</span></div>
+            <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Digital Marketing Executive — SEO &amp; Paid Ads</span></div>
+            <div class="meta-item"><span class="meta-label">Period</span><span class="meta-value">April – September 2026</span></div>
+            <div class="meta-item"><span class="meta-label">Tools</span><span class="meta-value">Google Search Console (Performance and AI performance reports), Live SERP Checks</span></div>
         </div>
     </div>
 
-    <!-- Campaign 1: Elite IIT -->
-    <section class="pm-section">
-        <h2>Elite IIT Coaching — Meta Ads &amp; Google Ads</h2>
-        <p class="section-sub">May 2026 – Present · Digital Marketing Executive — SEO &amp; Paid Ads · Bengaluru</p>
-
-        <div class="campaign-block">
-            <div class="campaign-header">
-                <div class="campaign-title">
-                    <h3>Meta Ads — Lead Generation</h3>
-                    <div class="client">Elite IIT · 4-Branch Coaching Institute · Bengaluru</div>
-                </div>
-                <div class="campaign-badges">
-                    <span class="badge">Lead Gen</span>
-                    <span class="badge">WhatsApp CTA</span>
-                    <span class="badge grey">May–Oct 2026</span>
-                </div>
-            </div>
-            <div class="campaign-stats">
-                <div class="c-stat"><span class="n">₹84K+</span><span class="l">Total Spend</span></div>
-                <div class="c-stat"><span class="n">1,469</span><span class="l">Enquiries at ₹57 Each</span></div>
-                <div class="c-stat"><span class="n">1,260</span><span class="l">WhatsApp Conversations</span></div>
-                <div class="c-stat"><span class="n">209</span><span class="l">Lead-Form Leads</span></div>
-            </div>
-            <p>Audited 18 months of campaign history on day one, then restructured the account with separate campaigns per product, geo-targeted audiences per branch, and a WhatsApp qualification filter to screen leads before they reached the counselling team.</p>
-            <h3>What I Did</h3>
-            <ul>
-                <li>Restructured from 1 generic campaign to segmented campaigns per product (NEET, Class 6–12, Navodaya, Dropper)</li>
-                <li>Set up geo-targeting per branch — Yelahanka, Koramangala, Jayanagar, Malleshwaram</li>
-                <li>Added a WhatsApp qualification filter — screening questions before a lead reaches a counsellor</li>
-                <li>Built audience segments: website visitors, interest-based (NEET, JEE, coaching), lookalikes</li>
-                <li>Launched the NEET Crash Course campaign the same day the re-exam was announced — 104 leads generated</li>
-                <li>Set up a new Meta dataset (Pixel + Conversions API), replacing a setup that had undercounted 100+ leads</li>
-                <li>Launched landing-page lead-form campaigns alongside WhatsApp campaigns</li>
-            </ul>
-        </div>
-
-        <div class="campaign-block">
-            <div class="campaign-header">
-                <div class="campaign-title">
-                    <h3>Google Ads — Search Lead Generation</h3>
-                    <div class="client">Elite IIT · Google Search</div>
-                </div>
-                <div class="campaign-badges">
-                    <span class="badge">Search Ads</span>
-                    <span class="badge grey">Calls + Form Conversions</span>
-                </div>
-            </div>
-            <div class="campaign-stats">
-                <div class="c-stat"><span class="n">₹47K+</span><span class="l">Spend, May–Oct</span></div>
-                <div class="c-stat"><span class="n">161</span><span class="l">Leads, Jul–Oct</span></div>
-                <div class="c-stat"><span class="n">₹221</span><span class="l">Per Conversion (Oct)</span></div>
-            </div>
-            <p>Search campaigns for high-intent programs such as Navodaya, Sainik School and RMS, with calls and website-form submissions tracked as conversions. I fixed broken Google Ads conversion tracking and added landing-page call-button conversions through Google Tag Manager. Budgets moved with the season, so spend ranged up to ₹30K+ a month across Google and Meta combined.</p>
-        </div>
-
-        <div class="campaign-block">
-            <div class="campaign-header">
-                <div class="campaign-title">
-                    <h3>Why Leads Alone Don't Tell the Story</h3>
-                    <div class="client">Elite IIT · Lead Outcomes</div>
-                </div>
-                <div class="campaign-badges">
-                    <span class="badge grey">Beyond CPL</span>
-                </div>
-            </div>
-            <p>Cost per lead is a useful operational number, but what matters is whether leads turn into visits and admissions. I track each lead's status through the sales team's updates: in October, 65 of 209 leads from Google, Meta, organic search and calls (31%) booked a demo or branch visit, at a blended ₹317 of ad spend per booking (₹20,617 total spend; the blend includes organic leads). In August, Google and organic leads alone produced 43 bookings.</p>
+    <section class="section">
+        <h2>The Results, In Plain Terms</h2>
+        <p class="section-intro">You don't need to know SEO to read these four numbers.</p>
+        <div class="stats-grid">
+            <div class="stat-box"><div class="stat-number">10,986</div><div class="stat-label">AI Overview Impressions (Aug)</div></div>
+            <div class="stat-box"><div class="stat-number">14.7%</div><div class="stat-label">Of All August Search Appearances</div></div>
+            <div class="stat-box"><div class="stat-number">37.9%</div><div class="stat-label">More Search Impressions (Apr → Aug)</div></div>
+            <div class="stat-box"><div class="stat-number">274</div><div class="stat-label">Queries Improved in Ranking (of 499)</div></div>
         </div>
     </section>
 
-    <hr class="section-divider">
-
-    <!-- Campaign 2: Saltworx -->
-    <section class="pm-section">
-        <h2>Saltworx — Meta Ads (Awareness + Lead Gen)</h2>
-        <p class="section-sub">Jun – Sep 2025 · Design Brewery Internship · B2B SaaS</p>
-
-        <div class="campaign-block">
-            <div class="campaign-header">
-                <div class="campaign-title">
-                    <h3>Meta Ads — Awareness &amp; Lead Generation</h3>
-                    <div class="client">Saltworx · Inventory Management SaaS · SME Market</div>
-                </div>
-                <div class="campaign-badges">
-                    <span class="badge">Awareness</span>
-                    <span class="badge">Lead Gen</span>
-                    <span class="badge grey">₹1,098 + ₹1,421</span>
-                </div>
-            </div>
-            <div class="campaign-stats">
-                <div class="c-stat"><span class="n">6.4L+</span><span class="l">Impressions</span></div>
-                <div class="c-stat"><span class="n">₹1.74</span><span class="l">Per 1,000 Reached (Best)</span></div>
-                <div class="c-stat"><span class="n">23</span><span class="l">Leads</span></div>
-                <div class="c-stat"><span class="n">₹22.63</span><span class="l">Best Cost per Lead</span></div>
-            </div>
-            <p>Assisted Meta Ads for Saltworx — a B2B SaaS platform for SMEs — across Facebook and Instagram. The awareness campaign tested video, carousel and static formats on ₹1,098 and reached 6.4 lakh+ impressions, with the video ad cheapest at ₹1.74 per 1,000 people reached.</p>
-            <p>A separate lead generation campaign (₹1,421) produced 23 leads; the best ad, a customer testimonial, came in at ₹22.63 per lead.</p>
-            <h3>What I Did</h3>
-            <ul>
-                <li>Assisted with setting up and running awareness and lead-gen campaigns</li>
-                <li>Tested static, carousel and video ad formats against each other</li>
-                <li>Supported weekly content across Instagram, Facebook and LinkedIn</li>
-                <li>Prepared weekly performance reports presented to the client every Wednesday</li>
-            </ul>
+    <section class="section" style="background: var(--card-bg);">
+        <h2>What AI Overviews Are</h2>
+        <div class="plain-english-box">
+            <div class="tag">In Plain English</div>
+            <p>Google now often shows an AI-written summary at the very top of search results, above the normal list of websites. To write it, Google pulls from pages it trusts on the topic and links them as sources. Being cited there puts a brand in front of searchers before any regular result — it's the newest form of search visibility.</p>
+        </div>
+        <h3>How I Measured It</h3>
+        <div class="investigation-step">
+            <div class="step-num">1</div>
+            <p>Used Search Console's AI performance report to see how often Elite IIT pages appeared in AI Overviews: 10,986 impressions in August, 14.7% of the month's search impressions.</p>
+        </div>
+        <div class="investigation-step">
+            <div class="step-num">2</div>
+            <p>Identified the pages AI Overviews cited most often, to see which content Google's AI draws on — in-depth, well-structured pages with clear answers.</p>
+        </div>
+        <div class="investigation-step">
+            <div class="step-num">3</div>
+            <p>Compared overall Search Console performance for April and August to see how visibility moved across the whole site.</p>
         </div>
     </section>
 
-    <hr class="section-divider">
+    <section class="section">
+        <h2>Visibility Growth — April vs August</h2>
+        <table>
+            <tr><th>Metric</th><th>April</th><th>August</th></tr>
+            <tr><td>Search impressions</td><td>54.3K</td><td>74.8K (37.9% growth)</td></tr>
+            <tr><td>New queries in Google's top 10</td><td>—</td><td>318</td></tr>
+            <tr><td>Queries improved in position (of 499 in both months)</td><td>—</td><td>274</td></tr>
+            <tr><td>AI Overview impressions</td><td>—</td><td>10,986</td></tr>
+        </table>
+    </section>
 
-    <!-- Campaign 3: Fintree (light) -->
-    <section class="pm-section">
-        <h2>Fintree Coaching — Ad Strategy</h2>
-        <p class="section-sub">Jun – Sep 2025 · Design Brewery Internship · Education</p>
-
-        <div class="campaign-block">
-            <div class="campaign-header">
-                <div class="campaign-title">
-                    <h3>Meta Ads Strategy — Competitor Research</h3>
-                    <div class="client">Fintree · CA Coaching Institute</div>
-                </div>
-                <div class="campaign-badges">
-                    <span class="badge grey">Strategy</span>
-                    <span class="badge grey">Competitor Analysis</span>
-                </div>
-            </div>
-            <div class="light-note"><span>Note:</span> This was early-stage strategy work, not execution. No campaign numbers — included here for transparency as it was part of my first paid ads exposure.</div>
-            <p>Developed Meta Ads strategy for Fintree through competitor analysis — reviewed active ad creatives, audiences, and messaging across competing CA coaching institutes. Produced ad copy recommendations and creative direction for the client.</p>
-            <ul>
-                <li>Audited competitor Meta Ads using Ad Library</li>
-                <li>Identified content gaps and positioning opportunities</li>
-                <li>Recommended ad angles and copy direction for launch</li>
-            </ul>
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Verified Live, Not Just in a Dashboard</h2>
+        <p>Monthly averages can hide what's really happening, so I also checked the branded searches directly.</p>
+        <div class="investigation-step">
+            <div class="step-num">✓</div>
+            <p>On September 7, I searched every branded term — "Elite IIT", "Elite IIT Malleshwaram" and the other branches — in an incognito window, so personal history couldn't affect results. Every one ranked #1.</p>
         </div>
     </section>
 
-    <!-- Tools -->
-    <div class="tools-strip">
-        <h3>Tools &amp; Platforms</h3>
-        <div class="tools-grid">
-            <span class="tool-tag">Meta Ads Manager</span>
-            <span class="tool-tag">Google Ads</span>
-            <span class="tool-tag">Google Tag Manager</span>
-            <span class="tool-tag">Meta Pixel</span>
-            <span class="tool-tag">Meta Conversions API</span>
-            <span class="tool-tag">Meta Ad Library</span>
-            <span class="tool-tag">WhatsApp Lead Funnels</span>
-            <span class="tool-tag">Conversion Tracking</span>
-            <span class="tool-tag">Audience Segmentation</span>
-            <span class="tool-tag">Ad Format Testing</span>
-            <span class="tool-tag">Google Search Console</span>
+    <section class="section">
+        <h2>A Related Finding — What Drives Local Rankings</h2>
+        <ul>
+            <li><strong>Review velocity matters more than star rating.</strong> A competitive check of top-ranking coaching institutes showed Malleshwaram outranks even higher-rated competitors by consistently generating new reviews — about 2 a day.</li>
+            <li><strong>Complete Business Profiles rank better.</strong> Branches with nearly all service listings filled in (83 of 85) improved their Google Maps rankings.</li>
+        </ul>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+        <h2>Why This Matters Going Forward</h2>
+        <p>Search is shifting toward AI-generated answers — sometimes called <strong>AEO (Answer Engine Optimization)</strong>. Ranking in the regular results is no longer the only way to be seen; being the source Google's AI quotes is becoming just as important. Deep, well-structured course pages with clear answers are the kind of content AI answers draw on.</p>
+        <div class="verdict-box">
+            <p><strong>The bottom line:</strong> 10,986 AI Overview impressions in a single month, 37.9% more search impressions, 274 queries improved, and every branded search confirmed at #1.</p>
         </div>
+    </section>
+
+    <div class="project-nav">
+        <a href="eliteiit.html" class="nav-project nav-prev">
+            <div class="nav-label">← Previous Project</div>
+            <div class="nav-title">Elite IIT — Full Case Study</div>
+        </a>
+        <a href="Saltworx.html" class="nav-project nav-next">
+            <div class="nav-label">Next Project →</div>
+            <div class="nav-title">Meta Ads Campaign — Saltworx</div>
+        </a>
     </div>
 
     <footer>
-        <p>© 2026 Umair Abdullah &nbsp;·&nbsp; <a href="index.html" style="color: var(--primary-orange); text-decoration: none;">Back to Portfolio</a> &nbsp;·&nbsp; umairabdullah1821@gmail.com</p>
+        <p>© 2026 Umair Abdullah · <a href="index.html" style="color: var(--primary-orange); text-decoration: none;">Back to Portfolio</a></p>
     </footer>
 
 </body>
